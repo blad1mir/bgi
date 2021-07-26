@@ -1,0 +1,67 @@
+<ion-content>
+  <div class="contenido">
+    <div class="content1">
+       
+                <ion-img class="logo" src="assets/img/logo.png"></ion-img>
+              <ion-img class="imagen" src="assets/img/family.png"></ion-img>
+              <!-- <div class="contenedorContacto" (click)="call()"> 
+                
+                <ion-label  class="contacto">Asistencia Médica 0800-123-3445</ion-label> 
+                <ion-img class="imagen" src="assets/img/icon-asistencia-24.png" class="asistencia"></ion-img>
+              
+              </div> -->
+            
+    </div>
+   
+    
+      
+        <div class="recuadro">
+              <div class="barra">
+            <div class="saludo">
+              <ion-label>Bienvenido</ion-label>
+            </div>
+            </div>
+          <div class="covertexto">
+            <p class="textopequeno">Haz click en la sección que deseas ingresar</p>
+            <br>
+          </div>
+        <div class="base"> 
+          <ion-grid>
+            <ion-row class="iconos">
+              
+                <ion-col routerLink="/login">
+                  <ion-icon name="log-in-outline"></ion-icon>
+                </ion-col>
+                <!-- <ion-col routerLink="/directorio/inicio">
+                  <ion-icon name="calendar-clear-outline"></ion-icon>
+                </ion-col> -->
+                <ion-col  routerLink="/contacto/inicio">
+                  <ion-icon name="call-outline"></ion-icon>
+                </ion-col>
+              </ion-row>
+
+              <ion-row class="texto">
+                <ion-col routerLink="/login">
+                  <ion-label>Iniciar sesión</ion-label>
+                </ion-col>
+                <!-- <ion-col routerLink="/directorio/inicio">
+                  <ion-label>Directorio</ion-label>
+                </ion-col> -->
+                <ion-col routerLink="/contacto/inicio">
+                  <ion-label>Contacto</ion-label>
+                </ion-col>
+              </ion-row>
+          </ion-grid>
+            
+        </div>
+        
+
+        </div>
+  </div>
+  
+  
+
+ 
+  
+
+</ion-content>

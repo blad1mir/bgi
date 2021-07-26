@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar  color="secondary">
+    <ion-buttons slot="start">
+      <ion-button color="dark" routerLink="/principal">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-title>directorio</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="blue">
+   
+ 
+    <div class="atencion">
+        Seleccione el contrato como:
+          <ion-row>
+            <ion-col><ion-label> Titular</ion-label></ion-col>
+            <ion-col><ion-toggle color="light"  [(ngModel)]="condicion" (ionChange)="cambiar()"></ion-toggle></ion-col>
+            <ion-col> <ion-label>Beneficiario</ion-label></ion-col>
+          </ion-row>
+    </div>
+
+    <div class="atencion" *ngIf="condicion==false">
+      <br>
+      <ion-label>Número de contrato: </ion-label>
+      <ion-input  placeholder="0000-0000-000-00" type="number"></ion-input>
+      
+      <br>
+      <ion-label> Aseguradora: </ion-label>
+      <ion-input  placeholder="Nombre de aseguradora" type="text"></ion-input>
+      <br>
+      <ion-label> Cédula del titular: </ion-label>
+      <ion-input  placeholder="V00-000-000" type="text"></ion-input>
+      <br>
+      <ion-label> Cobertura del plan: </ion-label>
+      <ion-input  placeholder="Seleccione cobertura del plan" type="text"></ion-input>
+    </div>
+
+    <div class="atencion" *ngIf="condicion">
+      <br>
+      <ion-label>Número de contrato: </ion-label>
+      <ion-input  placeholder="0000-0000-000-00" type="number"></ion-input>
+      
+      <br>
+      <ion-label> Aseguradora: </ion-label>
+      <ion-input  placeholder="Nombre de aseguradora" type="text"></ion-input>
+      <br>
+      <ion-label> Cédula del titular: </ion-label>
+      <ion-input  placeholder="V00-000-000" type="text"></ion-input>
+      <br>
+      <ion-label> Cobertura del plan: </ion-label>
+      <ion-input  placeholder="Seleccione cobertura del plan" type="text"></ion-input>
+      <br>
+      <ion-label> Cédula del beneficiario: </ion-label>
+      <ion-input  placeholder="V00-000-000" type="text"></ion-input>
+    </div>
+  </div>
+ 
+
+</ion-content>

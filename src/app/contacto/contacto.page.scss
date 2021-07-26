@@ -1,0 +1,97 @@
+ion-content{
+    --ion-background-color: white;
+}
+
+p{
+    color: black;
+}
+
+.imagen{
+    margin: 5% 5% 0% 5%;
+}
+
+// ion-col > ion-label{
+//     color: rgb(83, 78, 78);
+//     margin: 0 2% 0 2%;
+//     font-size: 14px;
+//     text-align: left;
+// }cc
+
+.gris{
+    color: rgb(124, 117, 117);
+    margin: 0 2% 0 2%;
+    font-size: 14px;
+    text-align: left;
+}
+
+.contacto{
+ 
+    color: rgb(124, 117, 117);
+    //background-color: cadetblue;
+}
+
+.imgcontacto{
+    width: 40px;
+    height: 40px;
+    margin-left: 30%;
+
+}
+
+.centrado{
+    margin: 0 auto;
+    width: 40%;
+    //background-color: cornflowerblue;
+}
+
+.atencion{
+    color: white;
+    width: 70%;
+    margin: 0 auto;
+    background-color: #4ba7cc;
+    text-align: center;
+   // background-color: cadetblue;
+}
+
+.atencion2{
+    color: white;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #4ba7cc;
+    padding: 0% 2% 0% 2%;
+
+   // background-color: cadetblue;
+}
+
+
+.blue{
+    background-color: #4ba7cc;
+    height: auto;
+    padding-top: 5%;
+}
+
+ion-col > div > a{
+    margin: 0 auto;
+    color: white;
+    margin-left: 25%;
+}
+
+ion-col > a {
+    text-decoration:none;
+    color: white;
+    margin-left: 5%;
+}
+
+ion-icon{
+    font-size: 30px;
+}
+
+.footer{
+    font-size: 14px;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: rgb(124, 119, 119);
+}
+
+.azul{
+    color: rgb(73, 168, 206);
+}

@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" (click)="close()">
+      <ion-button color="light">
+      
+        <ion-icon name="close-circle-outline"></ion-icon>
+        
+      </ion-button>
+      
+    </ion-buttons>
+   <ion-title>Detalles de historial</ion-title>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+  
+  <ion-card >
+    <ion-card-header>
+   
+        <ion-grid color="secondary">
+        
+            <ion-card-title>Fecha: {{historial.fecha}} </ion-card-title>
+                 
+            <div>
+              <br>
+
+                     
+                      <ion-item-divider>
+                        <div>
+                            <ion-label>Motivo: </ion-label>
+                      
+                      <br> 
+                      <ion-label>{{historial.motivo}}</ion-label>
+                        </div>
+                      
+                      </ion-item-divider> 
+                      <br>
+                      <ion-item-divider> 
+                        <div>
+                          <ion-label>Servicio:</ion-label>
+                        <br> 
+                        <ion-label>{{historial.servicio}} </ion-label>
+                        </div>
+                        
+                      </ion-item-divider>
+                       
+                        <br> 
+                        <ion-item-divider> 
+                          <div>
+                            <ion-label>Especialidad: </ion-label> 
+                        <br> 
+                        <ion-label>{{historial.especialidad}} </ion-label>
+                          </div>
+
+                        </ion-item-divider>
+                        
+                        <br> 
+                        <ion-item-divider> 
+                          <div>  
+                            <ion-label>Aseguradora: </ion-label>
+                        <br> 
+                        <ion-label>{{historial.aseguradora}} </ion-label>
+
+                          </div>
+                        </ion-item-divider>
+                      
+                        <br> 
+                      
+                          <div>
+                            <ion-label>&nbsp; &nbsp; Baremo: </ion-label>
+                            <ul>
+                            <div *ngFor="let datos of historia">
+                           
+                            <ion-label> <li>{{datos.descripcion}} </li></ion-label>
+                            
+                            </div>
+                           </ul>
+                          </div> 
+                        <ion-item-divider> 
+                        </ion-item-divider>
+                       
+                       
+                        <br>
+                        <ion-item-divider>
+                        <div>
+                          <ion-label>Póliza: </ion-label>
+                        <br> 
+                        <ion-label>{{historial.poliza}} </ion-label>
+
+                        </div>
+                        </ion-item-divider>
+                        
+                        <br> 
+                        <ion-item-divider> 
+                          <div>
+                            <ion-label>Proveedor: </ion-label>
+                            <br> 
+                            <ion-label>{{historial.proveedor}} </ion-label>
+
+                          </div>
+                        </ion-item-divider>
+                       
+                        <br> 
+                        
+                      
+                       
+
+            </div>
+                   
+            
+          
+        </ion-grid>
+     
+
+    </ion-card-header>
+
+  </ion-card>
+
+
+</ion-content>
+
+<!-- <ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-footer> -->

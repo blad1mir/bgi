@@ -1,0 +1,49 @@
+ion-content{
+    --ion-background-color: white;
+}
+
+ion-toolbar{
+    --background: #2a388f;
+    --color: white;
+ 
+}
+
+ion-icon {
+    // color: white;
+     font-size: 30px;
+     color: whitesmoke;
+   }
+
+.card1{
+    background-color: #6dcff6 !important;
+}
+
+.item1{
+    --background: #6dcff6;
+    --color: rgb(105, 104, 104);
+}
+
+.card2{
+    background-color: gray !important;
+}
+
+.item2{
+    --background:gray;
+    --color: white;
+}
+
+.titulo2 {
+    color: white;
+    
+}
+.titulo1 {
+    color:rgb(105, 104, 104);
+    
+}
+
+
+// ion-toolbar{
+//     --background: #FFFFFF;
+//     --color: #6dcff6;
+//     --min-height: 6em ;
+// }

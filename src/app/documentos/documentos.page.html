@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-button color="light">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+    <ion-buttons slot="end" routerLink="/principal">
+      <ion-button color="light">
+      
+        <ion-icon name="return-up-back-outline"></ion-icon>
+        
+      </ion-button>
+      
+    </ion-buttons>
+   <ion-title>Perfil del usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="chevron-down-circle-outline"
+    pullingText="Desliza para actualizar"
+    refreshingSpinner="circles"
+    refreshingText="Actualizando...">
+  </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card class="card1">
+    <ion-card-header>
+  
+        <ion-grid>
+          <ion-avatar class="imagen">
+            <img src="assets/img/usericon.png">
+          </ion-avatar>
+          <ion-row >
+            <div>
+              <br>
+               <ion-item>
+                      <div>
+                      <ion-label>NOMBRE Y APELLIDO:</ion-label>
+                  
+                        <br>
+                      
+                      <ion-label> {{paciente.nombre}}  {{paciente.apellido}}</ion-label>
+                        </div>
+                  </ion-item> 
+                  <br>
+                  <ion-item>
+                    <div>
+                      <ion-label>Teléfono: </ion-label>
+                      <br>
+                      <ion-label>{{paciente.telefono}}  </ion-label>
+
+                    </div>
+                       
+                  </ion-item> 
+                  <br>
+
+                  <ion-item>
+                    <div>
+                      <ion-label>Correo: </ion-label>
+                      <br>
+                      <ion-label>{{paciente.email}}  </ion-label>
+
+                    </div>
+                   
+                 </ion-item> 
+                 <br>
+
+                 <ion-item>
+                   <div>
+                    <ion-label>Póliza: </ion-label>
+                    <br>
+                    <ion-label>{{paciente.poliza}}  </ion-label>
+
+                   </div>
+                 
+               </ion-item> 
+               <br>
+
+               <ion-item>
+                 <div>
+                  <ion-label>Dirección:  </ion-label>
+                  <br>
+                  <ion-label>{{paciente.direccion}}  </ion-label>
+
+                 </div>
+               
+             </ion-item> 
+            </div>
+    
+                 
+          </ion-row>
+        </ion-grid>
+    
+
+    </ion-card-header>
+
+  </ion-card>
+  <br>
+
+  <!-- <div class="blue">
+   
+
+    <div class="atencion">
+      <br>
+      <br>
+      <ion-label>Nombre y apellido: </ion-label>
+      <br>
+      <ion-label>{{paciente.nombre}}  {{paciente.apellido}}</ion-label>
+   
+      <br>
+      <br>
+      <ion-label>Teléfono: </ion-label>
+      <br>
+      <ion-label> {{paciente.telefono}}  </ion-label>
+    
+      <br>
+      <br>
+      <ion-label>Correo:  </ion-label>
+      <br>
+      <ion-label>{{paciente.email}}  </ion-label>
+      <br>
+      <br>
+      <ion-label>Póliza:   </ion-label>
+      <br>
+      <ion-label>{{paciente.poliza}}  </ion-label>
+      <br>
+      <br>
+      <ion-label>Dirección: </ion-label>
+      <br>
+      <ion-label>{{paciente.direccion}}  </ion-label>
+      <br>
+      <br>
+      ion-button  expand="full" shape="round" fill="outline">Ver más</ion-button> 
+  
+     
+    </div> 
+
+
+
+  </div>-->
+ 
+
+</ion-content>

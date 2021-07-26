@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar  color="secondary">
+    <ion-buttons slot="start">
+      <ion-button color="dark"   (click)="back()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-title>directorio</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list class="radio">
+    <ion-radio-group value="primaria">
+      <ion-list-header>
+        <ion-label>Tipo de atención:</ion-label>
+      </ion-list-header>
+  
+      <ion-item color="secondary">
+        <ion-label>Att. Médica Primaria</ion-label>
+        <ion-radio slot="start" value="primaria"></ion-radio>
+      </ion-item>
+  
+      <ion-item color="secondary">
+        <ion-label>Odontología</ion-label>
+        <ion-radio slot="start" value="odontologia"></ion-radio>
+      </ion-item>
+  
+      <ion-item color="secondary">
+        <ion-label>Oftamología</ion-label>
+        <ion-radio slot="start" value="oftamologia"></ion-radio>
+      </ion-item>
+
+      <ion-item color="secondary">
+        <ion-label>Servicios Finerarios</ion-label>
+        <ion-radio slot="start" value="funerarios"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-item  color="secondary">
+    <ion-label>Especialidad requerida</ion-label>
+    <ion-select>
+      <ion-select-option *ngFor="let especialidad of especialidades" value="{{especialidad.nombre}}" >{{especialidad.nombre}}</ion-select-option>
+    
+    </ion-select>
+  </ion-item>
+
+  <ion-item  color="secondary">
+    <ion-label>Ciudad</ion-label>
+    <ion-select>
+      <ion-select-option value="1">Opción 1</ion-select-option>
+      <ion-select-option value="2">Opción 2</ion-select-option>
+      <ion-select-option value="3">Opción 3</ion-select-option>
+      <ion-select-option value="4">Opción 4</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item  color="secondary">
+    <ion-label>Estado</ion-label>
+    <ion-select>
+      <ion-select-option value="1">Opción 1</ion-select-option>
+      <ion-select-option value="2">Opción 2</ion-select-option>
+      <ion-select-option value="3">Opción 3</ion-select-option>
+      <ion-select-option value="4">Opción 4</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item  color="secondary">
+    <ion-label>Centro de salud o profesional de la red</ion-label>
+    <ion-select>
+      <ion-select-option value="1">Opción 1</ion-select-option>
+      <ion-select-option value="2">Opción 2</ion-select-option>
+      <ion-select-option value="3">Opción 3</ion-select-option>
+      <ion-select-option value="4">Opción 4</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+</ion-content>

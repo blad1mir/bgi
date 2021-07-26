@@ -1,0 +1,46 @@
+ion-content {
+  --ion-background-color: #6dcff6;
+}
+
+ion-toolbar {
+  --background: #2a388f;
+  --color: white;
+}
+
+ion-icon {
+  // color: white;
+  font-size: 30px;
+  color: whitesmoke;
+}
+
+ion-label {
+  color: white;
+}
+
+.atencion {
+  margin-left: 3%;
+
+  text-align: left;
+  // background-color: cadetblue;
+}
+
+.blue {
+  background-color: #6dcff6;
+  height: auto;
+  padding-top: 5%;
+}
+
+.cerrar {
+  margin: 0 auto;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+}
+.icon {
+  font-size: 20px;
+}
+.enviar {
+  --background: gray;
+}

@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" (click)="close()">
+      <ion-button color="light">
+      
+        <ion-icon name="close-circle-outline"></ion-icon>
+        
+      </ion-button>
+      
+    </ion-buttons>
+   <ion-title>Registro de viajes</ion-title>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formregistroviaje" (ngSubmit)="registrarviaje()"> 
+     
+    <div class="blue">
+        <div class="atencion">
+
+      <br>
+     
+     
+        <ion-label>Fecha de Salida:</ion-label>
+         <ion-datetime formControlName="fecha_registro" cancel-text="Cancelar" done-text="Hecho" displayFormat="MM/DD/YYYY" min="{{year}}"></ion-datetime> 
+     
+
+        <ion-label>Fecha de Llegada:</ion-label>
+       <ion-datetime formControlName="fecha_llegada" cancel-text="Cancelar" done-text="Hecho" displayFormat="MM/DD/YYYY"  min="{{year}}" max="{{nextyear}}"></ion-datetime> 
+      
+      
+      <br>
+      <ion-label> Origen:</ion-label>
+      <ion-input   formControlName="origen"  placeholder="Ingrese el origen" type="text" required></ion-input>
+      <br>
+      <ion-label> Destino:</ion-label>
+      <ion-input   formControlName="destino" placeholder="Ingrese el destino" type="text" required></ion-input>
+      <br>
+    
+  
+      
+   
+    </div>
+    
+  
+
+  </div>
+  <ion-button expand="block"  type="submit" class="enviar" >Registrar viaje</ion-button>
+  
+  <!-- <br>
+  <div class="container">
+    <ion-button class="cerrar" type="submit" expand="full" shape="round" color="secondary"><p>Registrarse </p></ion-button>
+  </div> -->
+  </form> 
+
+</ion-content>

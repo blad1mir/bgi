@@ -1,0 +1,136 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-button color="light">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+    <ion-buttons slot="end" routerLink="/principal">
+      <ion-button color="light">
+      
+        <ion-icon name="return-up-back-outline"></ion-icon>
+        
+      </ion-button>
+      
+    </ion-buttons>
+   <ion-title>Historial de farmacia</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="chevron-down-circle-outline"
+    pullingText="Desliza para actualizar"
+    refreshingSpinner="circles"
+    refreshingText="Actualizando...">
+  </ion-refresher-content>
+  </ion-refresher>
+
+  <div  *ngIf="status; else elseBlock">
+    <div *ngFor="let datos of farmacia">
+      
+        <ion-card  class="card1" *ngIf="datos.estatus != 'FINALIZADO'">
+       
+                    <ion-card-header (click)="mostrarDetalles(datos)">
+                  
+                        <ion-grid>
+                          <ion-row>
+                            <div>
+                                
+                            <ion-card-title class="titulo1">Fecha: {{datos.fecha}} </ion-card-title>
+                         
+                            <br>
+                                  <ion-item class="item1">
+                                  
+                                      <ion-label>Motivo: {{datos.motivo}}</ion-label>
+                  
+                                  </ion-item> 
+                                  <br>
+                                  <ion-item class="item1">
+                                  
+                                    <ion-label>Orden: {{datos.orden}}</ion-label>
+                
+                                </ion-item> 
+                                <br>
+                                  <ion-item class="item1">
+                                        <ion-label>Servicio: {{datos.servicio}} </ion-label>
+                                  </ion-item> 
+                                  <br>
+                                  <ion-item class="item1">
+                                    <ion-label>Proveedor: {{datos.proveedor}}  </ion-label>
+                                </ion-item> 
+                                <br>
+                                <ion-item class="item1">
+                                  <ion-label>Estatus: {{datos.estatus}} </ion-label>
+                              </ion-item> 
+                            </div>
+                         
+                          </ion-row>
+                        </ion-grid>
+                    
+
+                    </ion-card-header>
+
+                  </ion-card>
+
+                  <ion-card  class="card2" *ngIf="datos.estatus == 'FINALIZADO'">
+                    <ion-card-header (click)="mostrarDetalles(datos)">
+                  
+                        <ion-grid >
+                          <ion-row >
+                            <div>
+                                <ion-card-title class="titulo2">Fecha: {{datos.fecha}} </ion-card-title>
+                          
+                            <br>
+                                  <ion-item class="item2">
+                                  
+                                      <ion-label>Motivo: {{datos.motivo}}</ion-label>
+                  
+                                  </ion-item > 
+                                  <br>
+                                  <ion-item class="item2">
+                                        <ion-label>Servicio: {{datos.servicio}} </ion-label>
+                                  </ion-item> 
+                                  <br>
+                                  <ion-item class="item2">
+                                    <ion-label>Proveedor: {{datos.proveedor}} </ion-label>
+                                </ion-item> 
+                                <br>
+
+                                <ion-item class="item2">
+                                  <ion-label>Estatus: {{datos.estatus}} </ion-label>
+                              </ion-item> 
+                            </div>
+                          
+                          </ion-row>
+                        </ion-grid>
+                    
+
+                    </ion-card-header>
+
+                  </ion-card>
+
+              
+    </div>
+     
+  </div>
+ 
+
+
+    
+  <ng-template #elseBlock> 
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> Usted no posee historial de farmacia</ion-card-title>
+
+    </ion-card-header>
+    </ion-card>
+  </ng-template>
+    <br>
+
+</ion-content>

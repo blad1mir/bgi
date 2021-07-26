@@ -1,0 +1,225 @@
+ion-content{
+    --ion-background-color: #2a388f !important;
+}
+
+p{
+    color: white;
+}
+
+a{
+    color: white;
+    font-size: 12px;
+  
+}
+
+
+.logo{
+  
+     width: 400px;
+     height: 300px;
+    margin: 0 auto;
+
+    
+   
+    // margin-top: 10%;
+    // margin-bottom: 10%;
+}
+.fondo{
+    height: 50%;
+    //background-color: springgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen{
+   
+   
+    width: 300px;
+    height: 200px;
+   
+    margin: 0 auto;
+    
+}
+.contenedorContacto{
+background-color: rgba(254, 255, 255, 0.801);
+
+position: absolute;
+width: 100%;
+height: 7%;
+top: 250px;
+column-count: 2;
+padding-top: 5px;
+
+
+}
+
+.contacto{
+ 
+      color: rgb(116, 108, 108);
+      width: 120%;
+      margin-top: 10px;
+      font-size: 12px;
+      right: 15%;
+      left: 5%;
+      display: block;
+      margin-left: 40%;
+    
+    //  background-color: chartreuse;
+  
+
+    //float: center;
+}
+
+.recuadro{
+    color: black;
+    background-color: #2a388f;
+    height: 55%;
+  
+}
+
+
+.saludo{
+    margin: 0 auto;
+    color: white;
+    font-size: 16px;
+   // background-color: blueviolet;
+    float: center;
+    width: 15%;
+
+}
+
+.barra{
+   background-color:#2a388f;
+   height: 60px;
+   padding-top: 20px;
+  // margin-top: 10px;
+}
+
+.textopequeno{
+    //font-size: 9px;
+    margin: 0 auto;
+    width: 40%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //background-color: yellow;
+   // margin-top: 5%;
+}
+
+
+
+  ion-col{
+     color: white;
+  }
+
+//   ion-col > ion-label {
+//     font-size: 15px;
+//     margin-top: 5%;
+//  }
+
+  .icono{
+      color: white;
+      font-size: 40px;
+      //background-color: salmon;
+      margin: 0 auto;
+  }
+
+  .formulario{
+      width: 70%;
+      
+      margin: 0 auto;
+     // background-color: royalblue;
+  }
+
+  ion-input{
+      background-color: white;
+      border-radius: 5px;
+      text-align: left;
+
+  
+  }
+  .enviar{
+    --background: gray;
+  }
+  .intoform{
+     // background-color: slateblue;
+      width: min-content;
+      margin: 0 auto;
+  }
+  .textoblanco{
+      color: rgb(231, 222, 222);
+      margin-left: 10%;
+      font-size: 14px;
+  }
+  .textoambar{
+      color: #6dcff6;
+      font-size: 12px;
+  }
+  a{
+      text-decoration: none;
+      color: #6dcff6;
+      font-size: 12px;
+  }
+
+
+
+  .texto{
+   
+    color: rgb(240, 231, 231);
+    //background-color: yellow;
+    // width: 48%;
+    // margin: 0 auto;
+    // background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  #registro{
+      margin-left: 3%;
+  }
+
+  .covertexto{
+      background-color: #359fc9;
+      padding-top: 2%;
+  }
+//   .asistencia{
+//       width: 30px;
+//       height: 30px;
+//      // float: center;
+//      // background-color: chartreuse;
+//       display: block;
+//       margin-top: 5%;
+//       margin-left: 40%;
+   
+     
+//   }
+
+// #eslogan{
+//     //background-color: blueviolet;
+//   //  color: white;
+//    // margin: 0 auto;
+   
+
+// }
+
+.fondoeslogan{
+     //position:;
+    //background-color: chartreuse;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    top: 40%;
+    right: 20%;
+    left: 20%;
+}
+
+
+
+
+  

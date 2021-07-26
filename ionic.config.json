@@ -1,5 +1,7 @@
 {
   "name": "atiempo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

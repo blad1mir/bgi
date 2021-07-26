@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" (click)="close()">
+      <ion-button color="light">
+      
+        <ion-icon name="close-circle-outline"></ion-icon>
+        
+      </ion-button>
+      
+    </ion-buttons>
+   <ion-title>Registro de usuario</ion-title>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content>
+   <form [formGroup]="formregistro" (ngSubmit)="registrar()"> 
+     
+    <div class="blue">
+   
+ 
+
+   
+
+        <div class="atencion">
+      <br>
+      <ion-label>Nombre Completo: </ion-label>
+      <ion-input  formControlName="nombre" (change)="disponible()" placeholder="Ingrese sus nombres" type="text" autocomplete="off" required></ion-input>
+      
+      <br>
+      <ion-label> Apellidos:</ion-label>
+      <ion-input   formControlName="apellido" (change)="disponible()"  placeholder="Ingrese sus apellidos" type="text" autocomplete="off" required></ion-input>
+      <br>
+      <ion-label> correo electrónico:</ion-label>
+      <ion-input   formControlName="correo" (change)="comprobar()" name="correo" [(ngModel)]="correo" placeholder="nombre@atiempo.com" type="text" ></ion-input>
+      <br>
+
+      <div *ngIf="booleanpaciente==true">
+        <br>
+        <ion-label>Dirección:</ion-label>
+        <ion-input   formControlName="direccion"  placeholder="Ingrese su dirección" type="text" ></ion-input>
+        <ion-label>Fecha de nacimiento:</ion-label>
+        <ion-datetime formControlName="fechan" cancel-text="Cancelar" done-text="Hecho" displayFormat="DD/MM/YYYY" min="1910" max="{{year}}"></ion-datetime> 
+      </div>
+     <!-- <p>{{correo}}</p> -->
+      <ion-label> Teléfono: </ion-label>
+     
+       
+      <ion-input  (change)="disponible()"  formControlName="telefono" class="text" placeholder="número" type="number" autocomplete="off" required></ion-input>
+      
+  
+   
+      <br>
+      <ion-label (click)="show()"> Contraseña:   <ion-icon name="{{icon}}" slot="end" class="icon"></ion-icon></ion-label>
+     
+      <ion-input   formControlName="password" placeholder="********" type="{{tipo}}" (change)="disponible()" class="password"></ion-input>
+   
+    </div>
+    
+  
+
+  </div>
+  
+  <br>
+  <div class="container">
+    <ion-button expand="block"  disabled="{{boton}}" type="submit" class="enviar" >Registrarse</ion-button>
+    <!-- <ion-button class="cerrar" disabled="{{boton}}" type="submit" expand="" shape="round" color="secondary"><p>Registrarse </p></ion-button> -->
+  </div>
+  </form>
+
+</ion-content>

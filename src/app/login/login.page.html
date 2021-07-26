@@ -1,0 +1,78 @@
+
+
+<ion-content>
+  <div class="fondo">
+      <ion-img class="logo" src="assets/img/logoblanco2.png"></ion-img>
+      <br> 
+
+  </div>
+  
+ 
+
+  <div class="recuadro">
+    <!-- <div class="fondoeslogan">
+    <ion-label id="eslogan">Soluciones para la vida</ion-label>
+  </div> -->
+    
+    <!-- <div class="barra">
+    <div class="saludo">
+     
+    </div>
+    </div> -->
+    <br>
+    <div class="formulario">
+      <form [formGroup]="ionicForm" (ngSubmit)="getUsuarios()">
+              <ion-input id="usuario" formControlName="email" placeholder="Usuario" type="text" required></ion-input>
+              <br>
+              <ion-input  id="clave" formControlName="clave" placeholder="Contraseña" type="password" required></ion-input>
+              <br> 
+              <ion-button expand="block"  type="submit" class="enviar" >Login</ion-button>
+              <!-- <div class="intoform">
+               </div> -->
+                    <!-- <ion-button  type="submit" shape="round" fill="clear" >
+                                  <ion-icon  slot="icon-only" name="arrow-forward-circle-outline" class="icono"></ion-icon>
+                                </ion-button> -->
+              
+            
+      </form>
+     
+
+    </div>
+   
+    <!-- <div class="textopequeno">
+     
+     
+    </div> -->
+  
+    <br>
+
+    <label class="textoblanco">¿Aún no eres miembro? </label>   
+    <label (click)="registro()" class="textoambar">Registrarse ahora! </label> 
+    <br>
+    <br>
+
+    <label class="textoblanco">Contraseña olvidada o activar usuario </label>   
+    <label class="textoambar"> <a href="https://adoctor.online/" class="">Accede aquí</a> </label>
+    <!-- <br>
+    <br>
+
+    <label class="textoblanco">¿Su cuenta está inactiva? </label>   
+    <label class="textoambar"> <a href="https://adoctor.online/" class="">Activar</a> </label> -->
+
+  <!-- <div class="texto">
+   <label>¿Aún no eres miembro? </label>
+  
+  </div>
+  <div class="texto">
+ 
+    <ion-button id="registro" shape="round" (click)="registro()" color="secondary">Registrarse</ion-button>
+   </div> -->
+
+  </div>
+  
+
+ 
+  
+
+</ion-content>
+

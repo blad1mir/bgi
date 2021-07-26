@@ -1,0 +1,155 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="openmenu()">
+      <ion-button color="light">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end"  (click)="cerrarSesion()">
+      <ion-button color="light">
+        <ion-label class="salida">Salir</ion-label>
+        <ion-icon name="log-out-outline"></ion-icon>
+        
+      </ion-button>
+      
+    </ion-buttons>
+  <!-- <ion-title>Documentos</ion-title>  -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div class="menu">
+    <ion-buttons slot="end" (click)="openmenu()">
+      <ion-button color="light">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </div> -->
+ 
+    <!-- <div class="cerrar"  (click)="cerrarSesion()">
+      <ion-icon name="log-out-outline"></ion-icon>
+      <br>
+      <ion-label>Salir</ion-label>
+    </div> -->
+    <!-- <ion-button class="cerrar"  expand="" shape="round" fill="outline" (click)="cerrarSesion()"><p>Cerrar <br> sesión </p></ion-button> -->
+    <br>
+    
+  <div class="fondo">
+    <ion-img class="logo" src="assets/img/logoblanco.png"></ion-img>
+  </div>
+  <br>
+  <div class="saludo">
+    <ion-label>HOLA, {{usuario[0].nombre}}  {{usuario[0].apellido}}</ion-label>
+  </div>
+
+  <ion-card routerLink="/documentos">
+    <ion-card-content>
+      <ion-row>
+      <ion-col  class="contenedor" size="3">   <ion-icon name="person-circle-outline"  class="menu"></ion-icon></ion-col>
+      <ion-col class="contenedor" size="9"><ion-card-title>Perfil del usuario</ion-card-title></ion-col>
+    </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card routerLink="/historial">
+    <ion-card-content>
+      <ion-row>
+      <ion-col  class="contenedor" size="3"><ion-icon src="assets/ICONOS/menu principal/folder.svg" class="menu"></ion-icon> </ion-col>
+      <ion-col class="contenedor" size="9"><ion-card-title>Historial médico</ion-card-title></ion-col>
+    </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card routerLink="/farmacia">
+    <ion-card-content>
+      <ion-row>
+      <ion-col  class="contenedor" size="3"><ion-icon name="medkit-outline" class="menu"></ion-icon> </ion-col>
+      <ion-col class="contenedor" size="9"><ion-card-title>Historial de farmacia</ion-card-title></ion-col>
+    </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-card routerLink="/viaje">
+    <ion-card-content>
+      <ion-row>
+      <ion-col  class="contenedor" size="3">  <ion-icon name="airplane-outline"  class="menu"></ion-icon></ion-col>
+      <ion-col class="contenedor" size="9"><ion-card-title>Asistencia al viajero</ion-card-title></ion-col>
+    </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card routerLink="/voip">
+    <ion-card-content>
+      <ion-row>
+      <ion-col  class="contenedor" size="3">  <ion-icon name="chatbubble-ellipses-outline" class="menu"></ion-icon></ion-col>
+      <ion-col class="contenedor" size="9"><ion-card-title>Asistencia médica</ion-card-title></ion-col>
+    </ion-row>
+    </ion-card-content>
+  </ion-card>
+ 
+  <!-- <div class="recuadro">
+    <br>
+    <br>
+    <br>
+
+   <div class="covertexto">
+      <p class="textopequeno">Haz click en la sección que deseas ingresar</p>
+      <br>
+    </div> 
+  
+  <ion-row class="iconos">
+    <ion-col routerLink="/historial">
+      <ion-fab-button color="light">
+        <ion-icon name="reader-outline"></ion-icon>
+      </ion-fab-button>
+     
+    </ion-col>
+
+    <ion-col  routerLink="/documentos">
+      <ion-fab-button color="light">
+        <ion-icon name="document-text-outline"></ion-icon>
+      </ion-fab-button>
+      
+    </ion-col>
+
+    <ion-col  routerLink="/viaje">
+      <ion-fab-button color="light">
+        <ion-icon name="airplane-outline"></ion-icon>
+      </ion-fab-button>
+     
+    </ion-col>
+    </ion-row>
+
+
+  <ion-row class="texto">
+    <ion-col routerLink="/historial">
+      <ion-label>Historial</ion-label>
+    </ion-col>
+    <ion-col routerLink="/documentos">
+      <ion-label>Documentos de afiliado</ion-label>
+    </ion-col>
+    <ion-col routerLink="/viaje">
+      <ion-label>Asistencia al viajero</ion-label>
+    </ion-col> 
+  </ion-row>
+
+    
+ 
+
+  </div> -->
+<!-- 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed"  href="https://tawk.to/chat/60ab0984a4114e480ad07be4/1f6e1qbkh?$_tawk_sk=60f1c0cd93e25d6f7c175305&$_tawk_tk=b74f6da378f14b7872fe112ad00672eb&v=698">
+    <ion-fab-button color="light">
+     <a href="https://tawk.to/chat/60ab0984a4114e480ad07be4/1f6e1qbkh?$_tawk_sk=60f1c0cd93e25d6f7c175305&$_tawk_tk=b74f6da378f14b7872fe112ad00672eb&v=698"><ion-icon name="chatbubble-ellipses-outline" class="flotante"></ion-icon></a> 
+    </ion-fab-button>
+  </ion-fab> 
+   -->
+
+ 
+  
+
+</ion-content>
+

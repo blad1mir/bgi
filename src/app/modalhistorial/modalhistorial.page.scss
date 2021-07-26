@@ -1,0 +1,31 @@
+ion-content {
+  --ion-background-color: white;
+}
+
+ion-toolbar {
+  --background: #2a388f;
+  --color: white;
+}
+
+ion-item-divider{
+  --background: #6dcff6;
+  --color: rgb(105, 104, 104);
+}
+
+ion-icon {
+  // color: white;
+  font-size: 30px;
+  color: whitesmoke;
+}
+ion-card-title {
+  color: rgb(105, 104, 104);
+}
+
+
+ion-label {
+  color: rgb(105, 104, 104);
+}
+
+ion-card {
+  background-color: #6dcff6 !important;
+}
