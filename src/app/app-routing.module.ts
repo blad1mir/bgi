@@ -71,6 +71,10 @@ const routes: Routes = [
     path: 'modalfarmacia',
     loadChildren: () => import('./modalfarmacia/modalfarmacia.module').then( m => m.ModalfarmaciaPageModule)
   },
+  {
+    path: 'soporte',
+    loadChildren: () => import('./soporte/soporte.module').then( m => m.SoportePageModule)
+  },
 ];
 
 @NgModule({

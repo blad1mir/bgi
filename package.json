@@ -22,7 +22,9 @@
     "@ionic-native/call-number": "^5.34.0",
     "@ionic-native/in-app-browser": "^5.34.0",
     "@ionic/angular": "^5.5.2",
+    "cordova": "^10.0.0",
     "cordova-ios": "6.2.0",
+    "cordova-plugin-cleartext": "^1.0.0",
     "moment": "^2.29.1",
     "rxjs": "~6.6.0",
     "safe-pipe": "^1.0.3",
@@ -84,8 +86,8 @@
       "mx.ferreyra.callnumber": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   }
 }

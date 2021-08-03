@@ -19,6 +19,14 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="chevron-down-circle-outline"
+    pullingText="Desliza para actualizar"
+    refreshingSpinner="circles"
+    refreshingText="Actualizando...">
+  </ion-refresher-content>
+  </ion-refresher>
   <!-- <div class="menu">
     <ion-buttons slot="end" (click)="openmenu()">
       <ion-button color="light">
@@ -81,11 +89,20 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card routerLink="/voip">
+  <ion-card (click)="toVoip()">
     <ion-card-content>
       <ion-row>
       <ion-col  class="contenedor" size="3">  <ion-icon name="chatbubble-ellipses-outline" class="menu"></ion-icon></ion-col>
       <ion-col class="contenedor" size="9"><ion-card-title>Asistencia médica</ion-card-title></ion-col>
+    </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card (click)="toSoporte()">
+    <ion-card-content>
+      <ion-row>
+      <ion-col  class="contenedor" size="3">  <ion-icon src="assets/ICONOS/menu principal/suport.svg" class="menu"></ion-icon></ion-col>
+      <ion-col class="contenedor" size="9"><ion-card-title>Soporte al usuario</ion-card-title></ion-col>
     </ion-row>
     </ion-card-content>
   </ion-card>

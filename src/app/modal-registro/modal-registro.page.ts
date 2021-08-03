@@ -146,7 +146,7 @@ export class ModalRegistroPage implements OnInit {
       apellido: this.formregistro.value.apellido,
       email: this.formregistro.value.correo,
       telefono: this.formregistro.value.telefono,
-      direccion: this.formregistro.value.direccion,
+      direccion: "",
       fechan: this.formregistro.value.fechan,
       password: this.formregistro.value.password
      
@@ -193,11 +193,13 @@ export class ModalRegistroPage implements OnInit {
       
       }
 
-      const toast = await this.toastController.create({
-        message: '¡Registro exitoso, contacte a soporte para activar su usario!',
-        duration: 5000
-      });
-      toast.present();
+      this.registro();
+
+      // const toast = await this.toastController.create({
+      //   message: '¡Registro exitoso, contacte a soporte para activar su usario!',
+      //   duration: 5000
+      // });
+      // toast.present();
       this.formregistro.reset();
     
       this.close();
@@ -253,7 +255,7 @@ export class ModalRegistroPage implements OnInit {
   
     return new Promise(resolve => {
       let body = {
-        aksi: 'getCorreoUsuario',
+        aksi: 'getCorreoUsuariotodos',
         email: this.correo
       };
 
@@ -265,8 +267,10 @@ export class ModalRegistroPage implements OnInit {
         console.log(data["result"].length)
 
         if(data["result"].length > 0){
-          
-         this.error2();
+         
+          this.error2();
+     
+      
          this.estatus = false;
          this.boton= true;
          this.booleanusaurio=false;
@@ -299,7 +303,7 @@ export class ModalRegistroPage implements OnInit {
       header: '',
       subHeader: 'Error!',
       message: '¡Usted no está registrado como paciente! Contacte con soporte',
-      buttons: ['OK']
+      buttons: ['CERRAR']
     });
    
     await alert.present();
@@ -310,7 +314,23 @@ export class ModalRegistroPage implements OnInit {
       header: '',
       subHeader: 'Error!',
       message: 'Este usuario ya se encuentra registrado. Pruebe restablecer su contraseña o contactar a soporte',
-      buttons: ['OK']
+      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://adoctor.online/"},'CERRAR']
+    });
+
+    this.formregistro.reset();
+    this.booleanpaciente = false;
+   
+    await alert.present();
+   }
+
+
+
+   async registro(){
+    const alert = await this.alertCtrl.create({
+      header: '',
+      subHeader: '¡Usuario registrado con éxito!',
+      message: 'El usuario estará activo después de realizar la suscripción',
+      buttons: [{text: 'Activar suscripción', handler: async () => window.location.href = "https://adoctor.online/"},'CERRAR']
     });
 
     this.formregistro.reset();

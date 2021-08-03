@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { AppComponent } from '../app.component';
 import { ConexionbdService } from '../servicio/conexionbd.service';
+import { SoporteserviceService } from '../soporteservice.service';
 import { VoipService } from '../voip.service';
 
 
@@ -21,22 +22,23 @@ export class PrincipalPage implements OnInit, OnDestroy {
 
   
   constructor(public router: Router, public post: ConexionbdService, private TawkService: VoipService,
-    private menu: MenuController, public compo: AppComponent) {
+    private menu: MenuController, public compo: AppComponent, private TawkSoporte: SoporteserviceService) {
       this.compo.estatus= true; 
       this.menu.enable(true, 'first');
      // this.menu.open('first');
-    this.TawkService.SetChatVisibility(false);
 
-    // var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    // (function(){
-    // var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    // s1.async=true;
-    // s1.src='https://embed.tawk.to/60ab0984a4114e480ad07be4/1f6e1qbkh';
-    // s1.charset='UTF-8';
-    // s1.setAttribute('crossorigin','*');
-    // s0.parentNode.insertBefore(s1,s0);
-    // })();
+     this.TawkSoporte.removerChat();
+     this.TawkService.removerChat();
+    if(this.TawkService.cargar==true){
+      this.TawkService.SetChatVisibility(false);
+    }
+    if(this.TawkSoporte.cargar==true){
+      this.TawkSoporte.SetChatVisibility(false);
+    }
     
+   
+
+
     this.usuario =  JSON.parse(localStorage.getItem('user'));
     console.log( JSON.parse(localStorage.getItem('user')));
     console.log(typeof(this.usuario))
@@ -92,8 +94,21 @@ export class PrincipalPage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    // this.TawkService.SetChatVisibility(false);
+    // this.TawkSoporte.SetChatVisibility(false);
 
    // this.TawkService.SetChatVisibility(true);
+  }
+
+  doRefresh(event) {
+    console.log('Begin async operation');
+
+    setTimeout(() => {
+    
+      console.log('Async operation has ended');
+      event.target.complete();
+    
+    }, 2000);
   }
 
   ngOnDestroy() {
@@ -104,6 +119,26 @@ export class PrincipalPage implements OnInit, OnDestroy {
     localStorage.setItem('user', null);
    
     this.router.navigate(['/login'])
+  }
+
+
+  toVoip(){
+   
+    
+
+   
+    this.TawkSoporte.removerChat();
+    this.TawkService.agregarChat();
+    this.TawkService.SetChatVisibility(true);
+    this.router.navigate(['/voip'])
+  }
+
+  toSoporte(){
+    this.TawkService.removerChat();
+    this.TawkSoporte.agregarChat();
+    
+    this.TawkSoporte.SetChatVisibility(true);
+    this.router.navigate(['/soporte'])
   }
 
 

@@ -11,7 +11,7 @@ import { ConexionbdService } from '../servicio/conexionbd.service';
 export class FarmaciaPage implements OnInit {
 
   usuario;
-  status =true; 
+  status =false; 
   farmacia;
   constructor(public post: ConexionbdService,   public modalController: ModalController,  private menu: MenuController) { 
     this.usuario =  JSON.parse(localStorage.getItem('user'));
@@ -51,8 +51,8 @@ export class FarmaciaPage implements OnInit {
        
          console.log(data["result"]);
          this.farmacia = data["result"];
-         if(data["result"].length == 0){
-          this.status=false;
+         if(data["result"].length > 0){
+          this.status=true;
          }
 
          

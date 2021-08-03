@@ -35,14 +35,9 @@
       <ion-label> correo electrónico:</ion-label>
       <ion-input   formControlName="correo" (change)="comprobar()" name="correo" [(ngModel)]="correo" placeholder="nombre@atiempo.com" type="text" ></ion-input>
       <br>
-
-      <div *ngIf="booleanpaciente==true">
-        <br>
-        <ion-label>Dirección:</ion-label>
-        <ion-input   formControlName="direccion"  placeholder="Ingrese su dirección" type="text" ></ion-input>
         <ion-label>Fecha de nacimiento:</ion-label>
         <ion-datetime formControlName="fechan" cancel-text="Cancelar" done-text="Hecho" displayFormat="DD/MM/YYYY" min="1910" max="{{year}}"></ion-datetime> 
-      </div>
+    
      <!-- <p>{{correo}}</p> -->
       <ion-label> Teléfono: </ion-label>
      

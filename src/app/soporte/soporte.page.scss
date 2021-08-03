@@ -1,0 +1,45 @@
+ion-content{
+    --ion-background-color: #2a388f;
+}
+ion-toolbar{
+    --background: #2a388f;
+    --color: white;
+ 
+}
+
+
+ion-icon {
+    // color: white;
+     font-size: 30px;
+     color: whitesmoke;
+   }
+
+   .flotante{
+    color:white;
+    font-size: 30px;
+}
+
+ion-fab {
+    margin-bottom: 3%;
+}
+
+.fondo{
+    height: 50%;
+    background-color: #2a388f !important;
+    //background-color: springgreen;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+  
+    width: 300px;
+    height: 200px;
+   margin: 0 auto;
+
+   
+  
+   // margin-top: 10%;
+   // margin-bottom: 10%;
+}

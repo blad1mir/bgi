@@ -70,7 +70,7 @@ export class LoginPage implements OnInit {
   
     return new Promise(resolve => {
       let body = {
-        aksi: 'getCorreoUsuario',
+        aksi: 'getCorreoUsuariotodos',
         email: this.ionicForm.value.email
       };
 
@@ -82,7 +82,10 @@ export class LoginPage implements OnInit {
         console.log(data["result"].length)
 
         if(data["result"].length > 0){
-          this.onLogin();
+        
+            this.onLogin();
+         
+        
         
 
         }else{
@@ -115,13 +118,23 @@ export class LoginPage implements OnInit {
         console.log(data["result"]);
         this.resultado = data["result"];
         if(this.resultado.length > 0){
-          console.log(true);
+          if(this.resultado[0].activo == '2'){
+            this.error3();
+
+          }else{
+              console.log(true);
 
           localStorage.setItem('user', JSON.stringify(data["result"]));
           this.compo.estatus= true; 
           this.compo.usuario = JSON.parse(localStorage.getItem('user'));
           this.router.navigate(['/principal']);
           this.ionicForm.reset();
+          }
+        
+         
+        
+          
+      
         //JSON.parse(localStorage.getItem('user'));
         }else{
           console.log(false);
@@ -150,7 +163,7 @@ export class LoginPage implements OnInit {
       header: '',
       subHeader: '',
       message: 'Contacte con soporte para restablecer su contraseña',
-      buttons: ['OK']
+      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://adoctor.online/"},'CERRAR']
     });
    
     await alert.present();
@@ -161,7 +174,18 @@ export class LoginPage implements OnInit {
       header: '',
       subHeader: 'Usuario no registrado',
       message: 'Pruebe registrarse o contartar a soporte',
-      buttons: ['OK']
+      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://adoctor.online/"},'CERRAR']
+    });
+    this.ionicForm.reset();
+    await alert.present();
+   }
+
+   async error3(){
+    const alert = await this.alertCtrl.create({
+      header: '',
+      subHeader: 'Usuario inactivo',
+      message: 'Su usuario estará activo después de suscribirse',
+      buttons: ['CERRAR', {text: 'ACTIVAR SUSCRIPCIÓN', handler: async () => window.location.href = "https://adoctor.online/"}]
     });
     this.ionicForm.reset();
     await alert.present();

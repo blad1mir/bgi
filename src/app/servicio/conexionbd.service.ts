@@ -5,7 +5,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ConexionbdService {
   //server: string = 'https://ez2order.000webhostapp.com/server_api/';
-  //server: string = 'https://atiempoadmin.com/config/'
+  //server pruebas 
+ // server: string = 'https://atiempoadmin.com/config/'
+ 
+ //server producción
   server: string = 'http://atiempo.online/config/';
 
   //server: string = 'http://localhost/atiempo_conexion/';

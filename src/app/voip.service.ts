@@ -9,19 +9,24 @@ declare var Tawk_API: any;
 })
 export class VoipService {
 
-  private loaded: boolean;
-  private renderer: Renderer2;
-  private loadSubject: Subject<boolean> = new Subject<boolean>();
+  public loaded: boolean;
+  public renderer: Renderer2;
+  public loadSubject: Subject<boolean> = new Subject<boolean>();
+  public cargar: boolean= false;
+
 
   
   constructor(private rendererFactory: RendererFactory2,
     @Inject(DOCUMENT) private _document: Document) {
       this.renderer = rendererFactory.createRenderer(null, null);
-            this.load();
+              this.load();
+     
+           
      }
 
      private load(){
-      if(this.loaded)
+      if(this.cargar){ 
+        if(this.loaded)
           return;
 
       const s = this.renderer.createElement('script');
@@ -37,7 +42,11 @@ export class VoipService {
       })();`;
       this.renderer.appendChild(this._document.body, s);
       Tawk_API.onLoad = this.loadedEvent.bind(this);
+      } 
+      
   }
+
+
 
   private loadedEvent(){
     this.loaded = true;
@@ -73,6 +82,19 @@ private updateAtrributes(user: any){
 public SetChatVisibility(show: boolean = false) {
   this.loadedWrapper(() => show ? Tawk_API.showWidget() : Tawk_API.hideWidget());
 }
+
+public removerChat(){
+  this.cargar = false;
+  this.renderer.removeAttribute;
+  this.load();
+}
+
+public agregarChat(){
+  this.cargar = true;
+  this.load();
+}
+
+
 
 
 }

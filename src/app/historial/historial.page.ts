@@ -15,7 +15,7 @@ export class HistorialPage implements OnInit {
   usuario;
   //historial:any = [];
   historial:Historial[] = [];
-  status =true; 
+  status =false; 
   Filtro: string = "";
 
   Fecha: string = "";
@@ -56,8 +56,8 @@ export class HistorialPage implements OnInit {
        
          console.log(data["result"]);
          this.historial = data["result"];
-         if(data["result"].length == 0){
-          this.status=false;
+         if(data["result"].length > 0){
+          this.status=true;
          }
 
          
