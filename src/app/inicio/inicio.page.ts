@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CallNumber } from '@ionic-native/call-number/ngx';
 import { ConexionbdService } from '../servicio/conexionbd.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { ConexionbdService } from '../servicio/conexionbd.service';
 export class InicioPage implements OnInit {
   especialidades;
   
-  constructor(public callNumber: CallNumber, public router: Router) {
+  constructor(public router: Router) {
 
    // this.getEspecialidad();
  
@@ -25,12 +24,12 @@ export class InicioPage implements OnInit {
 
 
 
-  call() {
-    var number = "08001233445"; 
-    this.callNumber.callNumber(number, true)
-      .then(res => console.log('Launched dialer!', res))
-      .catch(err => console.log('Error launching dialer', err));
+  // call() {
+  //   var number = "08001233445"; 
+  //   this.callNumber.callNumber(number, true)
+  //     .then(res => console.log('Launched dialer!', res))
+  //     .catch(err => console.log('Error launching dialer', err));
 
-  }
+  // }
 
 }
