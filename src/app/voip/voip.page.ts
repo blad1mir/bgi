@@ -29,8 +29,8 @@ export class VoipPage implements OnInit, OnDestroy {
 
     
     //this.TawkService.agregarChat();
-    this.TawkService.agregarChat();
-    this.TawkService.SetChatVisibility(true);
+    // this.TawkService.agregarChat();
+    // this.TawkService.SetChatVisibility(true);
     
     
    
@@ -77,8 +77,8 @@ export class VoipPage implements OnInit, OnDestroy {
 
 
   ngOnDestroy() {
-    this.TawkService.SetChatVisibility(false);
-    this.TawkService.removerChat();
+    // this.TawkService.SetChatVisibility(false);
+    // this.TawkService.removerChat();
     
     
  }

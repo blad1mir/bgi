@@ -314,7 +314,7 @@ export class ModalRegistroPage implements OnInit {
       header: '',
       subHeader: 'Error!',
       message: 'Este usuario ya se encuentra registrado. Pruebe restablecer su contraseña o contactar a soporte',
-      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://adoctor.online/"},'CERRAR']
+      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://ww2.corporacionatiempo.com/"},'CERRAR']
     });
 
     this.formregistro.reset();
@@ -329,8 +329,8 @@ export class ModalRegistroPage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: '',
       subHeader: '¡Usuario registrado con éxito!',
-      message: 'El usuario estará activo después de realizar la suscripción',
-      buttons: [{text: 'Activar suscripción', handler: async () => window.location.href = "https://adoctor.online/"},'CERRAR']
+      message: 'Para activar su usuario debe realizar su suscripción',
+      buttons: [{text: 'Activar suscripción', handler: async () => window.location.href = "https://ww2.corporacionatiempo.com/"},'CERRAR']
     });
 
     this.formregistro.reset();

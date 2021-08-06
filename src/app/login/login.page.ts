@@ -163,7 +163,7 @@ export class LoginPage implements OnInit {
       header: '',
       subHeader: '',
       message: 'Contacte con soporte para restablecer su contraseña',
-      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://adoctor.online/"},'CERRAR']
+      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://ww2.corporacionatiempo.com/"},'CERRAR']
     });
    
     await alert.present();
@@ -174,7 +174,7 @@ export class LoginPage implements OnInit {
       header: '',
       subHeader: 'Usuario no registrado',
       message: 'Pruebe registrarse o contartar a soporte',
-      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://adoctor.online/"},'CERRAR']
+      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://ww2.corporacionatiempo.com/"},'CERRAR']
     });
     this.ionicForm.reset();
     await alert.present();
@@ -185,7 +185,7 @@ export class LoginPage implements OnInit {
       header: '',
       subHeader: 'Usuario inactivo',
       message: 'Su usuario estará activo después de suscribirse',
-      buttons: ['CERRAR', {text: 'ACTIVAR SUSCRIPCIÓN', handler: async () => window.location.href = "https://adoctor.online/"}]
+      buttons: ['CERRAR', {text: 'ACTIVAR SUSCRIPCIÓN', handler: async () => window.location.href = "https://ww2.corporacionatiempo.com/"}]
     });
     this.ionicForm.reset();
     await alert.present();

@@ -127,17 +127,17 @@ export class PrincipalPage implements OnInit, OnDestroy {
     
 
    
-    this.TawkSoporte.removerChat();
-    this.TawkService.agregarChat();
-    this.TawkService.SetChatVisibility(true);
+    // this.TawkSoporte.removerChat();
+    // this.TawkService.agregarChat();
+    // this.TawkService.SetChatVisibility(true);
     this.router.navigate(['/voip'])
   }
 
   toSoporte(){
-    this.TawkService.removerChat();
-    this.TawkSoporte.agregarChat();
+    // this.TawkService.removerChat();
+    // this.TawkSoporte.agregarChat();
     
-    this.TawkSoporte.SetChatVisibility(true);
+    // this.TawkSoporte.SetChatVisibility(true);
     this.router.navigate(['/soporte'])
   }
 
