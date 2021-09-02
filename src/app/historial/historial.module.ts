@@ -11,6 +11,8 @@ import { FiltroPipe } from '../filtro.pipe';
 import { FechaPipe } from '../fecha.pipe';
 
 
+
+
 @NgModule({
   imports: [
     CommonModule,

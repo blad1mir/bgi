@@ -27,10 +27,10 @@ export class ModalRegistroPage implements OnInit {
     nombre: new FormControl(), 
     apellido: new FormControl(),
     correo: new FormControl(),
-    telefono: new FormControl(),
+   // telefono: new FormControl(),
     password: new FormControl(),
-    direccion: new FormControl(),
-    fechan: new FormControl()
+ //   direccion: new FormControl(),
+   // fechan: new FormControl()
 
   });
 
@@ -93,7 +93,7 @@ export class ModalRegistroPage implements OnInit {
 
     if((this.formregistro.value.nombre != null) && (this.formregistro.value.apellido != null)
      && (this.formregistro.value.correo != null) 
-     && (this.formregistro.value.password != null) && (this.formregistro.value.telefono != null) && (this.estatus == true)){
+     && (this.formregistro.value.password != null) && (this.estatus == true)){
       this.boton= false;
       console.log(this.boton);
     }else{
@@ -109,7 +109,7 @@ export class ModalRegistroPage implements OnInit {
       nombre: this.formregistro.value.nombre,
       apellido: this.formregistro.value.apellido,
       email: this.formregistro.value.correo,
-      telefono: this.formregistro.value.telefono,
+    //  telefono: this.formregistro.value.telefono,
       password: this.formregistro.value.password,
     };
 
@@ -117,15 +117,6 @@ export class ModalRegistroPage implements OnInit {
 
       var alertpesan = data.toString();
       if(data){
-        // const toast = await this.toastController.create({
-        //   message: '¡Usuario registrado con éxito!',
-        //   duration: 2000
-        // });
-        // toast.present();
-
-    
-
-    
 
       }else{
         const toast = await this.toastController.create({
@@ -145,9 +136,9 @@ export class ModalRegistroPage implements OnInit {
       nombre: this.formregistro.value.nombre,
       apellido: this.formregistro.value.apellido,
       email: this.formregistro.value.correo,
-      telefono: this.formregistro.value.telefono,
-      direccion: "",
-      fechan: this.formregistro.value.fechan,
+    //  telefono: this.formregistro.value.telefono,
+    //  direccion: "",
+     // fechan: this.formregistro.value.fechan,
       password: this.formregistro.value.password
      
     };
@@ -314,7 +305,7 @@ export class ModalRegistroPage implements OnInit {
       header: '',
       subHeader: 'Error!',
       message: 'Este usuario ya se encuentra registrado. Pruebe restablecer su contraseña o contactar a soporte',
-      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://ww2.corporacionatiempo.com/"},'CERRAR']
+      buttons: [{text: 'IR A SOPORTE', handler: async () => window.location.href = "https://bestglobalinsurance.online/"},'CERRAR']
     });
 
     this.formregistro.reset();
@@ -330,7 +321,7 @@ export class ModalRegistroPage implements OnInit {
       header: '',
       subHeader: '¡Usuario registrado con éxito!',
       message: 'Para activar su usuario debe realizar su suscripción',
-      buttons: [{text: 'Activar suscripción', handler: async () => window.location.href = "https://ww2.corporacionatiempo.com/"},'CERRAR']
+      buttons: [{text: 'Activar suscripción', handler: async () => window.location.href = "https://bestglobalinsurance.online/"},'CERRAR']
     });
 
     this.formregistro.reset();

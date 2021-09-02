@@ -7,6 +7,9 @@ import { IonicModule } from '@ionic/angular';
 import { DocumentosPageRoutingModule } from './documentos-routing.module';
 
 import { DocumentosPage } from './documentos.page';
+import { CiudadespipePipe } from '../ciudadespipe.pipe';
+import { IdCiudadespipePipe } from '../id-ciudadespipe.pipe';
+import { CodigopaispipePipe } from '../codigopaispipe.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +18,6 @@ import { DocumentosPage } from './documentos.page';
     IonicModule,
     DocumentosPageRoutingModule
   ],
-  declarations: [DocumentosPage]
+  declarations: [DocumentosPage, CiudadespipePipe, IdCiudadespipePipe, CodigopaispipePipe]
 })
 export class DocumentosPageModule {}

@@ -50,6 +50,23 @@ export class ViajePage implements OnInit {
    }
 
    
+
+  doRefresh(event) {
+  
+    console.log(event);
+    console.log(typeof(event))
+    console.log('Begin async operation');
+    
+
+    setTimeout(() => {
+     
+      console.log('Async operation has ended');
+      event.target.complete();
+      this.getViajes();
+    }, 2000);
+  }
+
+   
    openmenu(){
     this.menu.open('first');
   }

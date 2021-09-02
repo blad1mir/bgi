@@ -35,18 +35,34 @@
           <ion-avatar class="imagen">
             <img src="assets/img/usericon.png">
           </ion-avatar>
-          <ion-row >
+          <ion-item>
+           
             <div>
+            
+            <ion-label class="centrar"> {{pacienteAux.nombre}}  {{pacienteAux.apellido}}</ion-label>
+              </div>
+        </ion-item> 
+        <ion-item *ngIf="mostrar[1] == 1" >
+          <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(1)"></ion-icon>
+
+          <ion-label> Datos personales</ion-label>
+         
+            <ion-icon (click)="editarDatos(1)" *ngIf="editar[1] != 1" name="create-outline" slot="end"></ion-icon>
+            <ion-icon (click)="editarDatos(1)" *ngIf="editar[1] == 1" name="close-circle-outline" slot="end" ></ion-icon>
+      </ion-item>
+
+      <ion-item *ngIf="mostrar[1] != 1" >
+        <ion-icon name="caret-down-outline" slot="start" (click)="mostrarDatos(1)"></ion-icon>
+        
+        <ion-label> Datos personales</ion-label>
+         
+    </ion-item>
+
+   
+          <ion-row  *ngIf="mostrar[1] == 1">
+            <div *ngIf="editar[1] != 1">
               <br>
-               <ion-item>
-                      <div>
-                      <ion-label>NOMBRE Y APELLIDO:</ion-label>
-                  
-                        <br>
-                      
-                      <ion-label> {{paciente.nombre}}  {{paciente.apellido}}</ion-label>
-                        </div>
-                  </ion-item> 
+           
                   <br>
                   <ion-item>
                     <div>
@@ -61,7 +77,7 @@
 
                   <ion-item>
                     <div>
-                      <ion-label>Correo: </ion-label>
+                      <ion-label>Email: </ion-label>
                       <br>
                       <ion-label>{{paciente.email}}  </ion-label>
 
@@ -72,14 +88,24 @@
 
                  <ion-item>
                    <div>
-                    <ion-label>Póliza: </ion-label>
+                    <ion-label>Pais: </ion-label>
                     <br>
-                    <ion-label>{{paciente.poliza}}  </ion-label>
+                    <ion-label>{{paciente.id_pais}}  </ion-label>
 
                    </div>
                  
                </ion-item> 
                <br>
+               <ion-item>
+                <div>
+                 <ion-label>Ciudad: </ion-label>
+                 <br>
+                 <ion-label>{{paciente.id_ciudades}}  </ion-label>
+
+                </div>
+              
+            </ion-item> 
+            <br>
 
                <ion-item>
                  <div>
@@ -89,11 +115,1245 @@
 
                  </div>
                
-             </ion-item> 
+             </ion-item>
+             <br>
+             <ion-item>
+              <div>
+               <ion-label>Fecha de nacimiento: </ion-label>
+               <br>
+               <ion-datetime displayFormat="DD MM YYYY" value="{{paciente.fecha_nac}}" readonly></ion-datetime> 
+
+              </div>
+          
+            
+            
+          </ion-item> 
+          <br> 
+          <ion-item>
+            <div>
+             <ion-label>Sexo: </ion-label>
+             <br>
+             <ion-label>{{paciente.sexo}}  </ion-label>
+
+            </div>
+          
+        </ion-item> 
+            </div>
+
+
+            <div *ngIf="editar[1] == 1" class="lista">
+              <br>
+           
+                  <br>
+                  <ion-item>
+                    <div>
+                      <ion-label>Teléfono: </ion-label>
+                      <br>
+                      <ion-input class=""  [(ngModel)]="pacienteAux.telefono" value="paciente.telefono"  placeholder="0000 00 00" type="text" required="true"></ion-input>
+                     
+
+                    </div>
+                       
+                  </ion-item> 
+                  <br>
+
+                  <ion-item>
+                    <div>
+                      <ion-label>Email: </ion-label>
+                      <br>
+                      <ion-label>{{paciente.email}}  </ion-label>
+
+                    </div>
+                   
+                 </ion-item> 
+                 <br>
+
+ 
+               <ion-item class="lista">
+                <ion-label class="texto">Pais:</ion-label>
+                <ion-select interface="action-sheet" [(ngModel)]="pacienteAux.id_pais" class="select">
+                  <!-- <ion-select-option value="--"></ion-select-option> -->
+                  <ion-select-option *ngFor="let pais of paises" value="{{pais}}">{{pais}}</ion-select-option>
+                  
+                </ion-select>
+              </ion-item>
+               <br>
+               <ion-item class="lista">
+                <ion-label class="texto">Ciudad:</ion-label>
+                <ion-select interface="action-sheet"  [(ngModel)]="pacienteAux.id_ciudades"   class="select">
+                  <!-- <ion-select-option value=""></ion-select-option> -->
+                  <ion-select-option *ngFor="let ciudad of ciudades " value="{{ciudad}}">{{ciudad}}</ion-select-option>
+                  
+                </ion-select>
+              </ion-item>
+          
+            <br>
+
+               <ion-item>
+                 <div>
+                  <ion-label>Dirección:  </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="pacienteAux.direccion" value="paciente.direccion"  placeholder="Av. Carretera. Casa." type="text" required="true"></ion-input>
+                  
+
+                 </div>
+               
+             </ion-item>
+             <br>
+             <ion-item>
+              <div *ngIf="paciente.fecha_nac != 'Invalid date' ">
+               <ion-label>Fecha de nacimiento: </ion-label>
+               <br>
+             
+               <ion-datetime cancel-text="Cancelar" done-text="Hecho" [(ngModel)]="pacienteAux.fecha_nac" displayFormat="DD MM YYYY" min="{{startyear}}" max="{{year}}" value="{{paciente.fecha_nac}}"></ion-datetime> 
+              
+
+              </div>
+
+              <div *ngIf="paciente.fecha_nac == 'Invalid date' ">
+                <ion-label>Fecha de nacimiento: </ion-label>
+                <br>
+                <ion-datetime cancel-text="Cancelar" done-text="Hecho" [(ngModel)]="pacienteAux.fecha_nac" displayFormat="DD MM YYYY" min="{{startyear}}" max="{{year}}" value="{{refernceyear}}"></ion-datetime> 
+ 
+ 
+               </div>
+            
+          </ion-item> 
+          <br> 
+
+          <ion-item class="lista">
+            <ion-label class="texto">Sexo:</ion-label>
+            <ion-select interface="popover" value="{{paciente.sexo}}" [(ngModel)]="pacienteAux.sexo" class="select">
+              <ion-select-option value=""></ion-select-option>
+              <ion-select-option value="F">Femenino</ion-select-option>
+              <ion-select-option value="M">Masculino</ion-select-option>
+              <ion-select-option value="O">Otro</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+          <ion-button expand="full" color="primary" (click)="enviarDatosPersonales()">Guardar cambios</ion-button>
             </div>
     
-                 
+           
           </ion-row>
+
+          <ion-item *ngIf="mostrar[2] == 1" >
+            <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(2)"></ion-icon>
+  
+            <ion-label> Datos físicos</ion-label>
+            <ion-icon  (click)="editarDatos(2)" *ngIf="editar[2] != 1" name="create-outline" slot="end"></ion-icon>
+
+            <ion-icon (click)="editarDatos(2)" *ngIf="editar[2] == 1" name="close-circle-outline" slot="end" ></ion-icon>
+          
+        </ion-item>
+  
+        <ion-item *ngIf="mostrar[2] != 1">
+          <ion-icon name="caret-down-outline" slot="start"  (click)="mostrarDatos(2)"></ion-icon>
+          <ion-label> Datos físicos</ion-label>
+         
+
+         
+          
+         
+           
+      </ion-item>
+
+      <ion-row  *ngIf="mostrar[2] == 1">
+       
+    
+          <div *ngIf="editar[2] != 1">
+          <br>
+       
+              <br>
+              
+              <ion-item>
+              
+                <div>
+                 
+                  <ion-label>Tipo de sangre </ion-label>
+                  
+                  <br>
+                  <ion-label>{{paciente.tipo_sangre}}  {{paciente.grupo_sangre}}</ion-label>
+
+                </div>
+                   
+              </ion-item> 
+              <br>
+
+              <ion-item>
+                <div>
+                  <ion-label>Peso  </ion-label>
+                  <br>
+                 
+                    <ion-label  *ngIf="paciente.peso == '' ">00  Kg. </ion-label>
+                    <ion-label  *ngIf="paciente.peso != '' ">{{paciente.peso}}  Kg. </ion-label>
+               
+
+                  
+                </div>
+               
+             </ion-item> 
+             <br>
+
+             <ion-item>
+               <div>
+                <ion-label>Estatura</ion-label>
+                <br>
+               
+                <ion-label  *ngIf="paciente.estatura == '' ">00  cm. </ion-label>
+                <ion-label  *ngIf="paciente.estatura != '' ">{{paciente.estatura}} cm. </ion-label>
+
+               </div>
+             
+           </ion-item> 
+    
+        </div>
+
+        <!-- <ion-button expand="full" (click)="updateDatosfisicos()" class="enviar" >Guardar</ion-button> -->
+        <div *ngIf="editar[2] == 1" class="lista">
+          <br>
+       
+              <br>
+              
+              <ion-item class="lista">
+              
+                <div class="lista">
+                  <ion-label>Tipo de sangre </ion-label>
+                  <br>
+                 
+                  <ion-item class="lista">   
+                    <ion-label class="texto">Grupo: </ion-label>
+                    <ion-select interface="popover" value="{{paciente.tipo_sangre}}" [(ngModel)]="pacienteAux.tipo_sangre" class="select">
+                      <ion-select-option value=""></ion-select-option>
+                      <ion-select-option value="A">A</ion-select-option>
+                      <ion-select-option value="B">B</ion-select-option>
+                      <ion-select-option value="AB">AB</ion-select-option>
+                      <ion-select-option value="O">O</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-item class="lista" >
+                    <ion-label class="texto">Factor Rh:</ion-label>
+                    <ion-select interface="popover" value="{{paciente.grupo_sangre}}" [(ngModel)]="pacienteAux.grupo_sangre" class="select">
+                      <ion-select-option value=""></ion-select-option>
+                      <ion-select-option value="Rh(+)">Rh(+)</ion-select-option>
+                      <ion-select-option value="Rh(-)">Rh(-)</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                  
+              
+                
+
+                </div>
+                   
+              </ion-item> 
+              <br>
+
+              <ion-item>
+                <div>
+                  <ion-label>Peso </ion-label>
+                  <br>
+                  <ion-row>
+                    <ion-col> <ion-input class="entrada"  [(ngModel)]="pacienteAux.peso"   placeholder="00" type="number" required="true"></ion-input></ion-col>
+                    <ion-col><ion-label> kg.</ion-label></ion-col>
+                  </ion-row>
+
+               
+                   
+                    
+                </div>
+               
+             </ion-item> 
+             <br>
+
+             <ion-item>
+               <div>
+                <ion-label>Estatura</ion-label>
+                <br>
+                <ion-row>
+                  <ion-col><ion-input class="entrada" [(ngModel)]="pacienteAux.estatura" value="paciente.estatura" placeholder="00" type="number" required="true"></ion-input></ion-col>
+                  <ion-col><ion-label> cm.</ion-label></ion-col>
+                </ion-row>
+
+                
+                
+
+               </div>
+             
+           </ion-item> 
+  
+             <ion-button expand="full" color="primary" (click)="enviarDatosFisicos()">Guardar cambios</ion-button>
+          
+    
+        </div>
+      
+
+             
+      </ion-row>
+
+      
+      <ion-item *ngIf="mostrar[3] == 1" >
+        <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(3)"></ion-icon>
+
+        <ion-label> Información médica</ion-label>
+       
+        
+    </ion-item>
+
+    <ion-item *ngIf="mostrar[3] != 1" >
+      <ion-icon name="caret-down-outline" slot="start" (click)="mostrarDatos(3)"></ion-icon>
+      <ion-label> Información médica</ion-label>
+       
+  </ion-item>
+
+  <ion-row  *ngIf="mostrar[3] == 1"  class="interno">
+    <div>
+          <ion-item *ngIf="mostrar[4] == 1" >
+          
+            <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(4)"></ion-icon>
+            <ion-icon (click)="editarDatos(4)" *ngIf="editar[4] != 1  && lengContacto > 0" name="create-outline" slot="end"></ion-icon>
+            <ion-icon (click)="editarDatos(4)" *ngIf="editar[4] == 1  && lengContacto > 0" name="close-circle-outline" slot="end" ></ion-icon>
+
+            <ion-label> Alergias</ion-label>
+        </ion-item>
+
+        <ion-item *ngIf="mostrar[4] != 1" >
+          <ion-icon name="caret-down-outline" slot="start" (click)="mostrarDatos(4)"></ion-icon>
+          <ion-label> Alergias</ion-label>
+          
+        </ion-item>
+
+        <div *ngIf="mostrar[4] == 1" >
+          <div *ngIf="editar[4] != 1 "> 
+            <div *ngIf="lengAlergias>0" >
+            <div *ngFor="let alergia of alergias" >
+                              <br>
+                              <ion-item>
+                                <div>
+                                  <ion-label>Descripción </ion-label>
+                                  <br>
+                                  <ion-label>{{alergia.descripcion}} </ion-label>
+                    
+                                </div>
+                                  
+                              </ion-item> 
+                              <br>
+                    
+                              <ion-item>
+                                <div>
+                                  <ion-label>Fecha de inicio: </ion-label>
+                                  <br>
+                                  <ion-label>{{alergia.fecha_inicio}}  </ion-label>
+                    
+                                </div>
+                              
+                            </ion-item> 
+                            <ion-button expand="full" color="danger" (click)="BorrarAlergiaActual(alergia.id)">Borrar</ion-button> 
+                            </div>
+              </div>
+
+            </div>
+              <div  *ngIf="editar[4] == 1 ">
+                <br>
+                <ion-item>
+                  <div>
+                    <ion-label>Descripción </ion-label>
+                    <br>
+                    <ion-input class=""  [(ngModel)]="AlergiaActual.descripcion"  placeholder="Eje. Alergia al polvo" type="text" required="true"></ion-input>
+      
+                  </div>
+                    
+                </ion-item> 
+                <br>
+      
+                <ion-item>
+                  <div>
+                    <ion-label>Fecha de inicio: </ion-label>
+                    <br>
+                    <ion-input class=""  [(ngModel)]="AlergiaActual.fecha_inicio"  placeholder="2020" type="text" required="true"></ion-input>
+      
+                  </div>
+                
+              </ion-item> 
+              <ion-button expand="full" color="primary" (click)="AgregarAlergia()">Agregar nueva</ion-button>
+      
+              </div>
+      
+       
+          
+          
+        <div  *ngIf="lengAlergias==0">
+          <br>
+          <ion-item>
+            <div>
+              <ion-label>Descripción </ion-label>
+              <br>
+              <ion-input class=""  [(ngModel)]="AlergiaActual.descripcion"  placeholder="Eje. Alergia al polvo" type="text" required="true"></ion-input>
+
+            </div>
+              
+          </ion-item> 
+          <br>
+
+          <ion-item>
+            <div>
+              <ion-label>Fecha de inicio: </ion-label>
+              <br>
+              <ion-input class=""  [(ngModel)]="AlergiaActual.fecha_inicio"  placeholder="2020" type="text" required="true"></ion-input>
+
+            </div>
+          
+        </ion-item> 
+        <ion-button expand="full" color="primary" (click)="AgregarAlergia()">Agregar nueva</ion-button>
+        </div>
+          </div>
+
+       
+
+        <br>
+        
+
+        <ion-item *ngIf="mostrar[5] == 1" >
+          <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(5)"></ion-icon>
+
+          <ion-label> Vacunas</ion-label>
+          <ion-icon (click)="editarDatos(5)" *ngIf="editar[5] != 1  && lengVacunas > 0" name="create-outline" slot="end"></ion-icon>
+            <ion-icon (click)="editarDatos(5)" *ngIf="editar[5] == 1  && lengVacunas > 0" name="close-circle-outline" slot="end" ></ion-icon>
+        
+            
+      </ion-item>
+
+      <ion-item *ngIf="mostrar[5] != 1" >
+        <ion-icon name="caret-down-outline" slot="start" (click)="mostrarDatos(5)"></ion-icon>
+        <ion-label> Vacunas</ion-label>
+        
+      </ion-item>
+      <br>
+      <!-- vacunas -->
+      <div *ngIf="mostrar[5] == 1" >
+        <div *ngIf="editar[5] != 1 "> 
+          <div *ngIf="lengVacunas>0" >
+          <div *ngFor="let vacuna of vacunas" >
+                            <br>
+                            <ion-item>
+                              <div>
+                                <ion-label>Descripción </ion-label>
+                                <br>
+                                <ion-label>{{vacuna.descripcion}} </ion-label>
+                  
+                              </div>
+                                
+                            </ion-item> 
+                            <br>
+                  
+                            <ion-item>
+                              <div>
+                                <ion-label>Fecha de vacunación: </ion-label>
+                                <br>
+                                <ion-label>{{vacuna.fecha}}  </ion-label>
+                  
+                              </div>
+                            
+                          </ion-item> 
+                          <ion-button expand="full" color="danger" (click)="BorrarVacunaActual(vacuna.id)">Borrar</ion-button> 
+                          </div>
+            </div>
+
+          </div>
+            <div  *ngIf="editar[5] == 1 ">
+              <br>
+              <ion-item>
+                <div>
+                  <ion-label>Descripción </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="VacunaActual.descripcion"  placeholder="Eje. Antigripal" type="text" required="true"></ion-input>
+    
+                </div>
+                  
+              </ion-item> 
+              <br>
+    
+              <ion-item>
+                <div>
+                  <ion-label>Fecha de vacunación: </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="VacunaActual.fecha"  placeholder="2020" type="text" required="true"></ion-input>
+    
+                </div>
+              
+            </ion-item> 
+            <ion-button expand="full" color="primary" (click)="AgregarVacuna()">Agregar nueva</ion-button>
+    
+            </div>
+    
+     
+        
+        
+      <div  *ngIf="lengVacunas==0">
+        <br>
+        <ion-item>
+          <div>
+            <ion-label>Descripción </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="VacunaActual.descripcion"  placeholder="Eje. Antigripal" type="text" required="true"></ion-input>
+
+          </div>
+            
+        </ion-item> 
+        <br>
+
+        <ion-item>
+          <div>
+            <ion-label>Fecha de vacunación: </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="VacunaActual.fecha"  placeholder="2020" type="text" required="true"></ion-input>
+
+          </div>
+        
+      </ion-item> 
+      <ion-button expand="full" color="primary" (click)="AgregarVacuna()">Agregar nueva</ion-button>
+      </div>
+        </div>
+     <!-- vacunas  -->
+
+      <ion-item *ngIf="mostrar[6] == 1" >
+        <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(6)"></ion-icon>
+
+        <ion-label> Enfermedades</ion-label>
+        <ion-icon (click)="editarDatos(6)" *ngIf="editar[6] != 1  && lengEnfermedades > 0" name="create-outline" slot="end"></ion-icon>
+        <ion-icon (click)="editarDatos(6)" *ngIf="editar[6] == 1  && lengEnfermedades > 0" name="close-circle-outline" slot="end" ></ion-icon>
+      
+          
+      </ion-item>
+
+      <ion-item *ngIf="mostrar[6] != 1" >
+      <ion-icon name="caret-down-outline" slot="start" (click)="mostrarDatos(6)"></ion-icon>
+      <ion-label> Enfermedades</ion-label>
+      
+      </ion-item>
+
+      <!-- Enfermedades -->
+
+      <div *ngIf="mostrar[6] == 1" >
+        <div *ngIf="editar[6] != 1 "> 
+          <div *ngIf="lengEnfermedades>0" >
+          <div *ngFor="let enfermedad of enfermedades" >
+                            <br>
+                            <ion-item>
+                              <div>
+                                <ion-label>Descripción </ion-label>
+                                <br>
+                                <ion-label>{{enfermedad.descripcion}} </ion-label>
+                  
+                              </div>
+                                
+                            </ion-item> 
+                            <br>
+                  
+                            <ion-item>
+                              <div>
+                                <ion-label>Fecha del diganóstico: </ion-label>
+                                <br>
+                                <ion-label>{{enfermedad.fecha_inicio}}  </ion-label>
+                  
+                              </div>
+                            
+                          </ion-item> 
+                          <ion-button expand="full" color="danger" (click)="BorrarEnfermedadActual(enfermedad.id)">Borrar</ion-button> 
+                          </div>
+            </div>
+
+          </div>
+            <div  *ngIf="editar[6] == 1 ">
+              <br>
+              <ion-item>
+                <div>
+                  <ion-label>Descripción </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="enfermedadActual.descripcion"  placeholder="Eje. Diabetes" type="text" required="true"></ion-input>
+    
+                </div>
+                  
+              </ion-item> 
+              <br>
+    
+              <ion-item>
+                <div>
+                  <ion-label>Fecha del diagnóstico: </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="enfermedadActual.fecha_inicio"  placeholder="2020" type="text" required="true"></ion-input>
+    
+                </div>
+              
+            </ion-item> 
+            <ion-button expand="full" color="primary" (click)="AgregarEnfermedad()">Agregar nueva</ion-button>
+    
+            </div>
+    
+     
+        
+        
+      <div  *ngIf="lengEnfermedades==0">
+        <br>
+        <ion-item>
+          <div>
+            <ion-label>Descripción </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="enfermedadActual.descripcion"  placeholder="Eje. Diabetes" type="text" required="true"></ion-input>
+
+          </div>
+            
+        </ion-item> 
+        <br>
+
+        <ion-item>
+          <div>
+            <ion-label>Fecha del diagnóstico: </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="enfermedadActual.fecha_inicio"  placeholder="2020" type="text" required="true"></ion-input>
+
+          </div>
+        
+      </ion-item> 
+      <ion-button expand="full" color="primary" (click)="AgregarEnfermedad()">Agregar nueva</ion-button>
+      </div>
+        </div>
+
+      <!-- Enfermedades -->
+
+
+      <br>
+
+      <ion-item *ngIf="mostrar[7] == 1" >
+        <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(7)"></ion-icon>
+
+        <ion-label> Cirugías / hospitalización</ion-label>
+        <ion-icon (click)="editarDatos(7)" *ngIf="editar[7] != 1  && lengCirugias > 0" name="create-outline" slot="end"></ion-icon>
+        <ion-icon (click)="editarDatos(7)" *ngIf="editar[7] == 1  && lengCirugias > 0" name="close-circle-outline" slot="end" ></ion-icon>
+      
+          
+      </ion-item>
+
+      <ion-item *ngIf="mostrar[7] != 1">
+      <ion-icon name="caret-down-outline" slot="start"  (click)="mostrarDatos(7)"></ion-icon>
+      <ion-label> Cirugías / hospitalización</ion-label>
+
+      </ion-item>
+      <br>
+
+      <!-- Cirugias -->
+
+      <div *ngIf="mostrar[7] == 1" >
+        <div *ngIf="editar[7] != 1 "> 
+          <div *ngIf="lengCirugias>0" >
+          <div *ngFor="let cirugia of cirugias" >
+                            <br>
+                            <ion-item>
+                              <div>
+                                <ion-label>Descripción </ion-label>
+                                <br>
+                                <ion-label>{{cirugia.motivo}} </ion-label>
+                  
+                              </div>
+                                
+                            </ion-item> 
+                            <br>
+                  
+                            <ion-item>
+                              <div>
+                                <ion-label>Fecha de inicio: </ion-label>
+                                <br>
+                                <ion-label>{{cirugia.fecha_inicio}}  </ion-label>
+                  
+                              </div>
+                            
+                          </ion-item> 
+
+                          <ion-item>
+                            <div>
+                              <ion-label>Fecha final: </ion-label>
+                              <br>
+                              <ion-label>{{cirugia.fecha_fin}}  </ion-label>
+                
+                            </div>
+                          
+                        </ion-item> 
+                          <ion-button expand="full" color="danger" (click)="BorrarCirugiaActual(cirugia.id)">Borrar</ion-button> 
+                          </div>
+            </div>
+
+          </div>
+            <div  *ngIf="editar[7] == 1 ">
+              <br>
+              <ion-item>
+                <div>
+                  <ion-label>Descripción </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="cirugiaActual.motivo"  placeholder="Eje. Hernia lumbar" type="text" required="true"></ion-input>
+    
+                </div>
+                  
+              </ion-item> 
+              <br>
+    
+              <ion-item>
+                <div>
+                  <ion-label>Fecha de inicio: </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="cirugiaActual.fecha_inicio"  placeholder="2020" type="text" required="true"></ion-input>
+    
+                </div>
+              
+            </ion-item> 
+
+            <ion-item>
+              <div>
+                <ion-label>Fecha final: </ion-label>
+                <br>
+                <ion-input class=""  [(ngModel)]="cirugiaActual.fecha_fin"  placeholder="2020" type="text" required="true"></ion-input>
+  
+              </div>
+            
+             </ion-item> 
+            <ion-button expand="full" color="primary" (click)="AgregarCirugia()">Agregar nueva</ion-button>
+    
+            </div>
+    
+     
+        
+        
+       <div  *ngIf="lengCirugias==0">
+        <br>
+        <ion-item>
+          <div>
+            <ion-label>Descripción </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="cirugiaActual.motivo"  placeholder="Eje. Hernia lumbar" type="text" required="true"></ion-input>
+
+          </div>
+            
+        </ion-item> 
+        <br>
+
+        <ion-item>
+          <div>
+            <ion-label>Fecha de inicio: </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="cirugiaActual.fecha_inicio"  placeholder="2020" type="text" required="true"></ion-input>
+
+          </div>
+        
+        </ion-item> 
+
+        <ion-item>
+        <div>
+          <ion-label>Fecha final: </ion-label>
+          <br>
+          <ion-input class=""  [(ngModel)]="cirugiaActual.fecha_fin"  placeholder="2020" type="text" required="true"></ion-input>
+
+        </div>
+      
+       </ion-item> 
+        <ion-button expand="full" color="primary" (click)="AgregarCirugia()">Agregar nueva</ion-button>
+        </div>
+
+
+          <!-- Cirugias -->
+
+   
+  
+        </div>
+             <ion-item *ngIf="mostrar[8] == 1">
+        <ion-icon name="caret-up-outline" slot="start"  (click)="mostrarDatos(8)"></ion-icon>
+
+        <ion-label>Medicamentos</ion-label>
+        <ion-icon (click)="editarDatos(8)" *ngIf="editar[8] != 1  && lengMedicamentos > 0" name="create-outline" slot="end"></ion-icon>
+        <ion-icon (click)="editarDatos(8)" *ngIf="editar[8] == 1  && lengMedicamentos > 0" name="close-circle-outline" slot="end" ></ion-icon>
+      
+
+        </ion-item>
+
+        <ion-item *ngIf="mostrar[8] != 1" >
+        <ion-icon name="caret-down-outline" slot="start" (click)="mostrarDatos(8)"></ion-icon>
+        <ion-label> Medicamentos</ion-label>
+        
+        </ion-item> 
+
+        <!-- Medicamentos -->
+        
+      <div *ngIf="mostrar[8] == 1" >
+        <div *ngIf="editar[8] != 1 "> 
+          <div *ngIf="lengMedicamentos>0" >
+          <div *ngFor="let medicamento of medicamentos" >
+                            <br>
+                            <ion-item>
+                              <div>
+                                <ion-label>Nombre: </ion-label>
+                                <br>
+                                <ion-label>{{medicamento.nombre}} </ion-label>
+                  
+                              </div>
+                                
+                            </ion-item> 
+                            <br>
+                  
+                            <ion-item>
+                              <div>
+                                <ion-label>Unidad: </ion-label>
+                                <br>
+                                <ion-label>{{medicamento.unidad}}  </ion-label>
+                  
+                              </div>
+                            
+                          </ion-item> 
+
+                          <ion-item>
+                            <div>
+                              <ion-label>Fecha inicio: </ion-label>
+                              <br>
+                              <ion-label>{{medicamento.fecha_inicio}}  </ion-label>
+                
+                            </div>
+                          
+                        </ion-item> 
+
+                        <ion-item>
+                          <div>
+                            <ion-label>Fecha final: </ion-label>
+                            <br>
+                            <ion-label>{{medicamento.fecha_fin}}  </ion-label>
+              
+                          </div>
+                        
+                      </ion-item>
+                          <ion-button expand="full" color="danger" (click)="BorrarMedicamentoActual(medicamento.id)">Borrar</ion-button> 
+                          </div>
+            </div>
+
+          </div>
+            <div  *ngIf="editar[7] == 1 ">
+              <br>
+              <ion-item>
+                <div>
+                  <ion-label>Nombre: </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="medicamentoActual.nombre"  placeholder="Eje. Acetaminofén" type="text" required="true"></ion-input>
+    
+                </div>
+                  
+              </ion-item> 
+              <br>
+    
+              <ion-item>
+                <div>
+                  <ion-label>Unidad: </ion-label>
+                  <br>
+                  <ion-input class=""  [(ngModel)]="medicamentoActual.unidad"  placeholder="Eje. tabletas" type="text" required="true"></ion-input>
+    
+                </div>
+              
+            </ion-item> 
+
+            <ion-item>
+              <div>
+                <ion-label>Fecha inicio: </ion-label>
+                <br>
+                <ion-input class=""  [(ngModel)]="medicamentoActual.fecha_inicio"  placeholder="2020" type="text" required="true"></ion-input>
+  
+              </div>
+            
+             </ion-item> 
+             <ion-item>
+              <div>
+                <ion-label>Fecha final: </ion-label>
+                <br>
+                <ion-input class=""  [(ngModel)]="medicamentoActual.fecha_fin"  placeholder="2020" type="text" required="true"></ion-input>
+  
+              </div>
+            
+             </ion-item> 
+            <ion-button expand="full" color="primary" (click)="AgregarMedicamento()">Agregar nueva</ion-button>
+    
+            </div>
+    
+     
+        
+        
+       <div  *ngIf="lengMedicamentos==0">
+        <br>
+        <ion-item>
+          <div>
+            <ion-label>Nombre: </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="medicamentoActual.nombre"  placeholder="Eje. Acetaminofén" type="text" required="true"></ion-input>
+
+          </div>
+            
+        </ion-item> 
+        <br>
+
+        <ion-item>
+          <div>
+            <ion-label>Unidad: </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="medicamentoActual.unidad"  placeholder="Eje. tabletas" type="text" required="true"></ion-input>
+
+          </div>
+        
+      </ion-item> 
+
+      <ion-item>
+        <div>
+          <ion-label>Fecha inicio: </ion-label>
+          <br>
+          <ion-input class=""  [(ngModel)]="medicamentoActual.fecha_inicio"  placeholder="2020" type="text" required="true"></ion-input>
+
+        </div>
+      
+       </ion-item> 
+       <ion-item>
+        <div>
+          <ion-label>Fecha final: </ion-label>
+          <br>
+          <ion-input class=""  [(ngModel)]="medicamentoActual.fecha_fin"  placeholder="2020" type="text" required="true"></ion-input>
+        </div>
+       </ion-item>
+       <ion-button expand="full" color="primary" (click)="AgregarMedicamento()">Agregar nueva</ion-button>
+
+        <!-- Medicamentos -->
+        
+      
+      </div> 
+    </div> 
+  </div>  
+    </ion-row>
+
+    <!-- <ion-item *ngIf="mostrar[8] == 1" >
+      <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(8)"></ion-icon>
+
+      <ion-label> Estudios médicos </ion-label>
+      <ion-icon  (click)="editarDatos(8)" *ngIf="editar[8] != 1" name="create-outline" slot="end"></ion-icon>
+
+      <ion-icon (click)="editarDatos(8)" *ngIf="editar[8] == 1" name="close-circle-outline" slot="end" ></ion-icon>
+    
+  </ion-item>
+
+  <ion-item *ngIf="mostrar[8] != 1">
+    <ion-icon name="caret-down-outline" slot="start"  (click)="mostrarDatos(8)"></ion-icon>
+    <ion-label> Estudios médicos </ion-label>
+   
+
+   
+    
+   
+     
+</ion-item>
+
+<ion-row  *ngIf="mostrar[8] == 1">
+ 
+
+  <div *ngIf="mostrar[8] == 1" >
+    <div *ngIf="editar[8] != 1 "> 
+      <div *ngIf="lengEstudios>0" >
+      <div *ngFor="let estudio of estudios" >
+                        <br>
+                        <ion-item>
+                          <div>
+                            <ion-label>Nombre: </ion-label>
+                            <br>
+                            <ion-label>{{estudio.nombre}} </ion-label>
+              
+                          </div>
+                            
+                        </ion-item> 
+                        <br>
+              
+                        <ion-item>
+                          <div>
+                            <ion-label>Fecha: </ion-label>
+                            <br>
+                            <ion-label>{{estudio.unidad}}  </ion-label>
+              
+                          </div>
+                        
+                      </ion-item> 
+
+                      <ion-item>
+                        <div>
+                          <ion-label>Comprobante: </ion-label>
+                          <br>
+                          <ion-label>{{estudio.ruta}}  </ion-label>
+            
+                        </div>
+                      
+                    </ion-item> 
+
+             
+                      <ion-button expand="full" color="danger" (click)="BorrarEstudioActual(estudio.id)">Borrar</ion-button> 
+                      </div>
+        </div>
+
+      </div>
+        <div  *ngIf="editar[8] == 1 ">
+          <br>
+          <ion-item>
+            <div>
+              <ion-label>Nombre: </ion-label>
+              <br>
+              <ion-input class=""  [(ngModel)]="estudio.nombre"  placeholder="Eje. Radiografía" type="text" required="true"></ion-input>
+
+            </div>
+              
+          </ion-item> 
+          <br>
+
+          <ion-item>
+            <div>
+              <ion-label>Fecha: </ion-label>
+              <br>
+              <ion-input class=""  [(ngModel)]="estudio.fecha"  placeholder="2020" type="text" required="true"></ion-input>
+
+            </div>
+          
+        </ion-item> 
+
+        <ion-item>
+          <div>
+            <ion-label>Adjuntar comprobante: </ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="estudio.archivo"  placeholder="" type="file" required="true"></ion-input>
+
+          </div>
+        
+         </ion-item> 
+        <ion-button expand="full" color="primary" (click)="AgregarEstudio()">Agregar nuevo</ion-button>
+
+        </div>
+
+ 
+    
+    
+   <div  *ngIf="lengEstudios==0">
+    <br>
+    <ion-item>
+      <div>
+        <ion-label>Nombre: </ion-label>
+        <br>
+        <ion-input class=""  [(ngModel)]="estudioActual.nombre"  placeholder="Eje. Radiografía" type="text" required="true"></ion-input>
+
+      </div>
+        
+    </ion-item> 
+    <br>
+
+    <ion-item>
+      <div>
+        <ion-label>Fecha: </ion-label>
+        <br>
+        <ion-input class=""  [(ngModel)]="estudioActual.fecha"  placeholder="2020" type="text" required="true"></ion-input>
+
+      </div>
+    
+  </ion-item> 
+
+  <ion-item>
+    <form [formGroup]="form" (ngSubmit)="AgregarEstudio()">
+    <div>
+      <label>Adjuntar comprobante: </label>
+      <br>
+      <input   name="avatar"  type="file" (change)="onFileChange($event)"/>
+
+    </div>
+    <button type="submit" >Agregar nuevo</button>
+  </form>
+   </ion-item> 
+
+    
+  
+  </div> 
+</div>
+
+ 
+    
+
+  
+
+
+       
+</ion-row> -->
+
+  <ion-item *ngIf="mostrar[9] == 1" >
+    <ion-icon name="caret-up-outline" slot="start" (click)="mostrarDatos(9)"></ion-icon>
+  
+    <ion-label>Contacto de emergecia</ion-label>
+   
+    <ion-icon (click)="editarDatos(9)" *ngIf="editar[9] != 1  && lengContacto > 0" name="create-outline" slot="end"></ion-icon>
+    <ion-icon (click)="editarDatos(9)" *ngIf="editar[9] == 1  && lengContacto > 0" name="close-circle-outline" slot="end" ></ion-icon>
+  </ion-item>
+  
+  <ion-item *ngIf="mostrar[9] != 1"  >
+  <ion-icon name="caret-down-outline" slot="start" (click)="mostrarDatos(9)"></ion-icon>
+
+  <ion-label> Contacto de emergecia</ion-label>
+ 
+  </ion-item>
+
+  <ion-row  *ngIf="mostrar[9] == 1 ">
+    <div *ngIf="editar[9] != 1 && lengContacto > 0 && contacto.nombre != ''">
+      <br>
+          <br>
+          <ion-item>
+            <div>
+              <ion-label>Nombre y apellido </ion-label>
+              <br>
+              <ion-label>{{contacto.nombre}} </ion-label>
+
+            </div>
+               
+          </ion-item> 
+          <br>
+
+          <ion-item>
+            <div>
+              <ion-label>Parentesco </ion-label>
+              <br>
+              <ion-label>{{contacto.parentesco}}  </ion-label>
+
+            </div>
+           
+         </ion-item> 
+         <br>
+
+         <ion-item>
+           <div>
+            <ion-label>Teléfono</ion-label>
+            <br>
+            <ion-label>{{contacto.telefono}}</ion-label>
+
+           </div>
+         
+       </ion-item>
+       
+       <br>
+
+       <ion-item>
+         <div>
+          <ion-label>Email</ion-label>
+          <br>
+          <ion-label>{{contacto.email}}</ion-label>
+
+         </div>
+       
+     </ion-item>
+
+    </div>
+
+    <div *ngIf="editar[9] == 1 && lengContacto > 0 && contacto.nombre != '' ">
+      <br>
+          <br>
+          <ion-item>
+            <div>
+              <ion-label>Nombre y apellido </ion-label>
+              <br>
+              <ion-input class=""  [(ngModel)]="contacto.nombre"  placeholder="Eje. Jonie Doe" type="text" required="true"></ion-input>
+
+            </div>
+               
+          </ion-item> 
+          <br>
+
+          <ion-item>
+            <div>
+              <ion-label>Parentesco </ion-label>
+              <br>
+              <ion-input class=""  [(ngModel)]="contacto.parentesco"  placeholder="Eje. Esposo" type="text" required="true"></ion-input>
+              
+
+            </div>
+           
+         </ion-item> 
+         <br>
+
+         <ion-item>
+           <div>
+            <ion-label>Teléfono</ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="contacto.telefono"  placeholder="0000 000 00 00" type="text" required="true"></ion-input>
+          
+
+           </div>
+         
+       </ion-item>
+       
+       <br>
+
+       <ion-item>
+         <div>
+          <ion-label>Email</ion-label>
+          <br>
+          <ion-input class=""  [(ngModel)]="contacto.email"  placeholder="atiempo@atiempo.online.com" type="text" required="true"></ion-input>
+   
+          <ion-button expand="full" color="primary" (click)="enviarDatosContacto()">Guardar cambios</ion-button>
+         </div>
+       
+     </ion-item>
+
+    </div>
+
+    <div *ngIf="lengContacto == 0">
+      <br>
+          <br>
+          <ion-item>
+            <div>
+              <ion-label>Nombre y apellido </ion-label>
+              <br>
+              <ion-input class=""  [(ngModel)]="contacto.nombre"  placeholder="Eje. Jonie Doe" type="text" required="true"></ion-input>
+
+            </div>
+               
+          </ion-item> 
+          <br>
+
+          <ion-item>
+            <div>
+              <ion-label>Parentesco </ion-label>
+              <br>
+              <ion-input class=""  [(ngModel)]="contacto.parentesco"  placeholder="Eje. Esposo" type="text" required="true"></ion-input>
+              
+
+            </div>
+           
+         </ion-item> 
+         <br>
+
+         <ion-item>
+           <div>
+            <ion-label>Teléfono</ion-label>
+            <br>
+            <ion-input class=""  [(ngModel)]="contacto.telefono"  placeholder="0000 000 00 00" type="text" required="true"></ion-input>
+          
+
+           </div>
+         
+       </ion-item>
+       
+       <br>
+
+       <ion-item>
+         <div>
+          <ion-label>Email</ion-label>
+          <br>
+          <ion-input class=""  [(ngModel)]="contacto.email"  placeholder="atiempo@atiempo.online.com" type="text" required="true"></ion-input>
+   
+          <ion-button expand="full" color="primary" (click)="addContacto()">Agregar contacto</ion-button>
+         </div>
+       
+     </ion-item>
+
+    </div>
+  </ion-row>
+
+
+
         </ion-grid>
     
 
@@ -102,47 +1362,7 @@
   </ion-card>
   <br>
 
-  <!-- <div class="blue">
-   
 
-    <div class="atencion">
-      <br>
-      <br>
-      <ion-label>Nombre y apellido: </ion-label>
-      <br>
-      <ion-label>{{paciente.nombre}}  {{paciente.apellido}}</ion-label>
-   
-      <br>
-      <br>
-      <ion-label>Teléfono: </ion-label>
-      <br>
-      <ion-label> {{paciente.telefono}}  </ion-label>
-    
-      <br>
-      <br>
-      <ion-label>Correo:  </ion-label>
-      <br>
-      <ion-label>{{paciente.email}}  </ion-label>
-      <br>
-      <br>
-      <ion-label>Póliza:   </ion-label>
-      <br>
-      <ion-label>{{paciente.poliza}}  </ion-label>
-      <br>
-      <br>
-      <ion-label>Dirección: </ion-label>
-      <br>
-      <ion-label>{{paciente.direccion}}  </ion-label>
-      <br>
-      <br>
-      ion-button  expand="full" shape="round" fill="outline">Ver más</ion-button> 
-  
-     
-    </div> 
-
-
-
-  </div>-->
  
 
 </ion-content>

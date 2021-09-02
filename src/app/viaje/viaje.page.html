@@ -19,6 +19,14 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+    pullingIcon="chevron-down-circle-outline"
+    pullingText="Desliza para actualizar"
+    refreshingSpinner="circles"
+    refreshingText="Actualizando...">
+  </ion-refresher-content>
+  </ion-refresher>
   <div class="blue" *ngIf="status; else elseBlock">
 
     <ion-card *ngFor="let viaje of viajes">
