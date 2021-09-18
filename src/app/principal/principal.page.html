@@ -52,25 +52,25 @@
     <ion-label>HOLA, {{usuario[0].nombre}}  {{usuario[0].apellido}}</ion-label>
   </div>
 
-  <ion-card routerLink="/documentos">
+  <ion-card routerLink="/menu/documentos">
     <ion-card-content>
       <ion-row>
-      <ion-col  class="contenedor" size="3">   <ion-icon name="person-circle-outline"  class="menu"></ion-icon></ion-col>
+      <ion-col  class="contenedor" size="3">  <ion-icon name="people-circle-outline" class="menu"></ion-icon>   </ion-col>
       <ion-col class="contenedor" size="9"><ion-card-title>Perfil del usuario</ion-card-title></ion-col>
     </ion-row>
     </ion-card-content>
   </ion-card>
 
-  <ion-card routerLink="/historial">
+  <ion-card routerLink="/menu/hmedico">
     <ion-card-content>
       <ion-row>
-      <ion-col  class="contenedor" size="3"><ion-icon src="assets/ICONOS/menu principal/folder.svg" class="menu"></ion-icon> </ion-col>
+      <ion-col  class="contenedor" size="3"> <ion-icon name="reader-outline" class="menu"></ion-icon> </ion-col>
       <ion-col class="contenedor" size="9"><ion-card-title>Historial médico</ion-card-title></ion-col>
     </ion-row>
     </ion-card-content>
   </ion-card>
 
-  <ion-card routerLink="/farmacia">
+  <ion-card routerLink="/menu/hfarmacia">
     <ion-card-content>
       <ion-row>
       <ion-col  class="contenedor" size="3"><ion-icon name="medkit-outline" class="menu"></ion-icon> </ion-col>
@@ -81,7 +81,7 @@
 
 
 
-  <ion-card routerLink="/viaje">
+  <ion-card routerLink="/menu/viajero">
     <ion-card-content>
       <ion-row>
       <ion-col  class="contenedor" size="3">  <ion-icon name="airplane-outline"  class="menu"></ion-icon></ion-col>
@@ -93,7 +93,7 @@
   <ion-card (click)="toVoip()">
     <ion-card-content>
       <ion-row>
-      <ion-col  class="contenedor" size="3">  <ion-icon name="chatbubble-ellipses-outline" class="menu"></ion-icon></ion-col>
+      <ion-col  class="contenedor" size="3">  <ion-icon name="chatbubbles-outline" class="menu"></ion-icon></ion-col>
       <ion-col class="contenedor" size="9"><ion-card-title>Asistencia médica</ion-card-title></ion-col>
     </ion-row>
     </ion-card-content>
@@ -102,7 +102,7 @@
   <ion-card (click)="toSoporte()">
     <ion-card-content>
       <ion-row>
-      <ion-col  class="contenedor" size="3">  <ion-icon src="assets/ICONOS/menu principal/suport.svg" class="menu"></ion-icon></ion-col>
+      <ion-col  class="contenedor" size="3">  <ion-icon name="construct-outline" class="menu"></ion-icon></ion-col>
       <ion-col class="contenedor" size="9"><ion-card-title>Soporte al usuario</ion-card-title></ion-col>
     </ion-row>
     </ion-card-content>

@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
       // })();
 
       if(JSON.parse(localStorage.getItem('user')) != null ){
-        this.router.navigate(['/principal'])
+        this.router.navigate(['/menu/inicio'])
       }
 
    }
@@ -127,7 +127,7 @@ export class LoginPage implements OnInit {
           localStorage.setItem('user', JSON.stringify(data["result"]));
           this.compo.estatus= true; 
           this.compo.usuario = JSON.parse(localStorage.getItem('user'));
-          this.router.navigate(['/principal']);
+          this.router.navigate(['/menu/principal']);
           this.ionicForm.reset();
           }
         

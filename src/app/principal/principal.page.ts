@@ -185,7 +185,7 @@ export class PrincipalPage implements OnInit, OnDestroy {
     // this.TawkSoporte.removerChat();
     // this.TawkService.agregarChat();
     // this.TawkService.SetChatVisibility(true);
-    this.router.navigate(['/voip'])
+    this.router.navigate(['/menu/medica'])
   }
 
   toSoporte(){
@@ -193,7 +193,7 @@ export class PrincipalPage implements OnInit, OnDestroy {
     // this.TawkSoporte.agregarChat();
     
     // this.TawkSoporte.SetChatVisibility(true);
-    this.router.navigate(['/soporte'])
+    this.router.navigate(['/menu/soporte'])
   }
 
 

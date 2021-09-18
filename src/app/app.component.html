@@ -24,33 +24,48 @@
     
          
         <ion-item>
-          <ion-label routerLink="/documentos" (click)="close()">Perfil del usuario</ion-label>
+          <ion-label routerLink="/menu/documentos" (click)="close()">Perfil del usuario</ion-label>
         </ion-item>
-        <ion-item>
+        <!-- <ion-item>
           <ion-label routerLink="/historial" (click)="close()">Historial médico</ion-label>
         </ion-item>
         <ion-item>
           <ion-label routerLink="/farmacia" (click)="close()">Historial de farmacia</ion-label>
         </ion-item>
-     
+      -->
         <ion-item>
-          <ion-label routerLink="/viaje" (click)="close()">Asistencia al viajero</ion-label>
+          <ion-label routerLink="/menu/viajero" (click)="close()">Asistencia al viajero</ion-label>
         </ion-item>
 
-        <ion-item>
+        <!-- <ion-item>
           <ion-label routerLink="/voip" (click)="close()">Asistencia médica</ion-label>
         </ion-item>
 
         <ion-item>
           <ion-label routerLink="/soporte" (click)="close()">Soporte al usuario</ion-label>
-        </ion-item>
+        </ion-item> -->
 
+     
+
+        
+      
+      </ion-list>
+
+      
+
+    </ion-content>
+    <ion-footer class="ion-no-border">
+      <ion-toolbar>
+       
         <ion-item>
           <ion-label (click)="logout()">Cerrar sesión</ion-label>
         </ion-item>
+    
       
-      </ion-list>
-    </ion-content>
+      </ion-toolbar> 
+      
+    </ion-footer>
   </ion-menu>
+  
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

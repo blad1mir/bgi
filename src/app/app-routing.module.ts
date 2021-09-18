@@ -75,6 +75,10 @@ const routes: Routes = [
     path: 'soporte',
     loadChildren: () => import('./soporte/soporte.module').then( m => m.SoportePageModule)
   },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu.module').then( m => m.MenuPageModule)
+  },
 ];
 
 @NgModule({
